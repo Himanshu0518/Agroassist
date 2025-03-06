@@ -1,0 +1,11 @@
+{
+    "params":
+    {
+        "local_server":"True",
+        "Local_uri":"sqlite:///users.db",
+        "prod_uri":"sqlite:///users.db" ,
+        "face-book":"#",
+        "gitHub" : "#" 
+    }
+   
+}

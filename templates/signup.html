@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>Signup - AgroAssist</title>
+</head>
+
+<body class="bg-light">
+    <div class="container mt-5">
+        <h1 class="text-success text-center mb-4">AgroAssist</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h3 class="text-center mb-4">Create an Account</h3>
+
+                        <!-- Ensure the CSRF token is present -->
+                        <form id="registrationForm" method="POST">
+                            {{ form.hidden_tag() }}
+
+                            <!-- Username Field -->
+                            <div class="form-group">
+                                {{ form.username.label(class="font-weight-bold") }}
+                                {{ form.username(class="form-control", placeholder="Enter your username") }}
+                                {% for error in form.username.errors %}
+                                    <div class="text-danger">{{ error }}</div>
+                                {% endfor %}
+                            </div>
+
+                            <!-- Email Field -->
+                            <div class="form-group">
+                                {{ form.email.label(class="font-weight-bold") }}
+                                {{ form.email(class="form-control", placeholder="Enter your email") }}
+                                {% for error in form.email.errors %}
+                                    <div class="text-danger">{{ error }}</div>
+                                {% endfor %}
+                            </div>
+
+                            <!-- Password Field -->
+                            <div class="form-group">
+                                {{ form.password.label(class="font-weight-bold") }}
+                                {{ form.password(class="form-control", placeholder="Enter your password") }}
+                                {% for error in form.password.errors %}
+                                    <div class="text-danger">{{ error }}</div>
+                                {% endfor %}
+                            </div>
+
+                            <!-- Confirm Password Field -->
+                            <div class="form-group">
+                                {{ form.confirm_password.label(class="font-weight-bold") }}
+                                {{ form.confirm_password(class="form-control", placeholder="Confirm your password") }}
+                                {% for error in form.confirm_password.errors %}
+                                    <div class="text-danger">{{ error }}</div>
+                                {% endfor %}
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="text-center mt-4">
+                                <button type="submit" class="btn btn-success btn-block">Sign Up</button>
+                            </div>
+                        </form>
+
+                        <!-- Login Redirect -->
+                        <p class="text-center mt-3">
+                            Already have an account? <a href="{{ url_for('login') }}" class="text-success font-weight-bold">Login here</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add JS for Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

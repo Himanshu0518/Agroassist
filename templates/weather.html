@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/weather.css') }}">
+    <title>Weather Info</title>
+    <!-- <style>
+        body {
+            background-image: url('{{ backgrnd_url }}');
+        }
+    </style> -->
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">Weather Info</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link link-opacity-100" id="todayBtn" href="#">Today</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" id="forecastBtn" href="#">Next 5 Days</a>
+                </li>
+            </ul>
+
+            <form class="form-inline ml-auto" action="/weather" method="get">
+                <input class="form-control mr-2" type="text" name="city" placeholder="Enter city name" required>
+                <button class="btn btn-success" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <!-- Weather Info Card -->
+    <div id="today_weather" class="container">
+        <div class="row d-flex justify-content-center py-5" id="box1">
+            <div class="col-md-8 col-lg-6 col-xl-5">
+                <div class="card text-body" style="border-radius: 35px;">
+                    <div class="card-body p-4">
+                        <!-- City and Time -->
+                        <div class="d-flex">
+                            <h6 class="flex-grow-1">{{ city }}</h6>
+                            <h6>{{ curr_time.strftime("%H:%M") }}</h6>
+                        </div>
+
+                        <!-- Temperature and Weather Description -->
+                        <div class="d-flex flex-column text-center mt-5 mb-4">
+                            <h8 class="display-4 mb-0 font-weight-bold">{{ round(curr_weather_data["main"]["temp"] -
+                                273.15, 2) }} °C</h8>
+                            <span class="small">{{ curr_weather_data["weather"][0]["description"] }}</span>
+                        </div>
+
+                        <!-- Additional Weather Details -->
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1" style="font-size: 1rem;">
+                                <div><i class="fas fa-wind fa-fw"></i> <span class="ms-1">{{
+                                        round(curr_weather_data["wind"]["speed"] * 18 / 5, 2) }} km/h</span></div>
+                                <div><i class="fas fa-tint fa-fw"></i> <span class="ms-1">{{
+                                        curr_weather_data["main"]["humidity"] }} %</span></div>
+                                <div><i class="fas fa-sun fa-fw"></i> <span class="ms-1">feels like: {{
+                                        round(curr_weather_data["main"]["feels_like"] - 273.15, 2) }} °C</span></div>
+                            </div>
+                            <div>
+                                <img src="{{ image_url }}" width="100px">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Weather Forecast -->
+    <div id="forecast" class="container">
+        <h2 class="text-center">Weather Forecast for {{ city }}</h2>
+
+        {% for Date, detail in forecast.items() %}
+        <details>
+            <summary class="summary d-flex justify-content-between align-items-center">
+                <div class="row w-100">
+                    <div class="col-md-3"><strong>{{ Date }}</strong></div>
+                    <div class="col-md-3">{{ max(detail['temp']) }} / {{ min(detail['temp']) }} °C</div>
+                    <div class="col-md-3 d-flex align-items-center">
+                        <img src="{{ url_for('static', filename='images/weather_icons/' + detail['weather'][0] + '.png') }}"
+                            alt="Weather Icon" class="icon me-2">
+                        {{ detail['weather'][0] }}
+                    </div>
+                    <div class="col-md-3">{{ detail['humidity'][0] }} %</div>
+                </div>
+            </summary>
+            <div class="details">
+                <h5>Time-wise Forecast</h5>
+                {% for i in range(detail['time']|length) %}
+                <div class="time-slot">
+                    <div>{{ detail['time'][i] }}</div>
+                    <div>Temp: {{ detail['temp'][i] }} °C</div>
+                    <div>
+                        <img src="{{ detail['icon_url'][i] }}"
+                            alt="{{ detail['weather'][i] }}" >
+                        {{ detail['weather'][i] }}
+                    </div>
+                    <div>
+                       💦 {{ detail['humidity'][i] }} %
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </details>
+        {% endfor %}
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/weather.js') }}"></script>
+</body>
+
+</html>

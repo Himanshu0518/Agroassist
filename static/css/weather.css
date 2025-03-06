@@ -1,0 +1,106 @@
+body {
+
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+}
+
+.navbar {
+    background: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand,
+.nav-link {
+    color: #2575fc !important;
+    font-weight: bold;
+}
+
+.btn-success {
+    background-color: #2575fc;
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #6a11cb;
+}
+
+.card {
+    background: linear-gradient(to bottom, #ffffff, #e3f2fd);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    border: none;
+}
+
+.card-body {
+    color: #333333;
+}
+
+.display-4 {
+    color: #2575fc;
+}
+
+.small {
+    color: #6c757d;
+}
+
+i {
+    color: #2575fc;
+}
+
+
+#forecast {
+    background-color: #f0f8ff;
+    font-family: Arial, sans-serif;
+    display: none;
+    color: #333333;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+.summary {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.details {
+    background-color: #fafafa;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.weather-icon {
+     background-color: #6c757d;
+}
+
+.time-slot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+
+.time-slot img {
+    height: 30px;
+    width: 30px;
+}
+
+.time-slot:hover {
+    background-color: #f7f9fc;
+}

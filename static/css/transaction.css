@@ -1,0 +1,10 @@
+.delBtn {
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+.delBtn:hover {
+    color: darkred;
+}
