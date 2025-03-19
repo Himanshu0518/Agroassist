@@ -1,29 +1,38 @@
-/*!
-* Start Bootstrap - Clean Blog v6.0.9 (https://startbootstrap.com/theme/clean-blog)
-* Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-clean-blog/blob/master/LICENSE)
-*/
-window.addEventListener('DOMContentLoaded', () => {
-    let scrollPos = 0;
-    const mainNav = document.getElementById('mainNav');
-    const headerHeight = mainNav.clientHeight;
-    window.addEventListener('scroll', function() {
-        const currentTop = document.body.getBoundingClientRect().top * -1;
-        if ( currentTop < scrollPos) {
-            // Scrolling Up
-            if (currentTop > 0 && mainNav.classList.contains('is-fixed')) {
-                mainNav.classList.add('is-visible');
-            } else {
-                console.log(123);
-                mainNav.classList.remove('is-visible', 'is-fixed');
-            }
-        } else {
-            // Scrolling Down
-            mainNav.classList.remove(['is-visible']);
-            if (currentTop > headerHeight && !mainNav.classList.contains('is-fixed')) {
-                mainNav.classList.add('is-fixed');
-            }
+document.addEventListener("DOMContentLoaded", function () {
+    const sidebar = document.getElementById("sidebar");
+    const toggleBtn = document.getElementById("sidebarToggleBtn");
+
+    if (toggleBtn) {
+        toggleBtn.addEventListener("click", function () {
+            sidebar.classList.toggle("active");
+        });
+    }
+});
+
+function confirmDelete(postId) {
+    Swal.fire({
+        title: "Are you sure?",
+        text: "This action cannot be undone!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#d33",
+        cancelButtonColor: "#3085d6",
+        confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            fetch(`/blog/del_post/${postId}`, {
+                method: "POST",
+                headers: {
+                    "X-CSRFToken": "{{ csrf_token() }}"  // If using Flask-WTF CSRF protection
+                }
+            }).then(response => {
+                if (response.ok) {
+                    Swal.fire("Deleted!", "Your post has been deleted.", "success")
+                        .then(() => location.reload());
+                } else {
+                    Swal.fire("Error!", "Failed to delete post.", "error");
+                }
+            });
         }
-        scrollPos = currentTop;
     });
-})
+}

@@ -1,117 +1,50 @@
 {% extends "layout.html" %}
 
 {% block content %}
-
-<!-- Wrapper -->
-
-
-<!-- Content -->
-<section>
-	<header class="main">
-		<h1>Home</h1>
-	</header>
-
-	<span class="image main"><img src="" alt="" /></span>
-
-	<p></p>
-
-	<hr class="major" />
-
-	<h2></h2>
-
-
-	<hr class="major" />
-
-
-
-	<hr class="major" />
-
-	<h2></h2>
-
+<!-- Hero Section -->
+<section class="container-fluid hero-section">
+    <div class="row align-items-center text-center">
+        <div class="col-lg-6">
+            <h1 class="fw-bold text-success">Welcome to AgroAssist</h1>
+            <p class="lead text-muted">
+                Empowering farmers with smart insights. Our platform provides advanced tools to help you decide which crops to plant and detect pests early—boosting productivity and sustainability on your farm.
+            </p>
+        </div>
+        <div class="col-lg-6">
+            <!-- Replace with a suitable hero image -->
+            <img src="#" alt="AgroAssist" class="img-fluid">
+        </div>
+    </div>
 </section>
 
-</div>
-</div>
+<!-- Features Section -->
+<section class="container mt-5">
+    <div class="row justify-content-center">
+        <!-- Crop Recommendation Feature -->
+        <div class="col-md-4 text-center mb-4">
+            <div class="feature-icon mb-3">
+                <!-- Using Font Awesome seedling icon -->
+                <i class="fas fa-seedling fa-5x text-success"></i>
+            </div>
+            <h4 class="fw-bold">Crop Recommendation</h4>
+            <p class="text-muted">
+                Discover the best crop options tailored to your farm conditions for increased profitability.
+            </p>
+            <a href="#" class="btn btn-outline-success">Learn More</a>
+        </div>
 
-<!-- Sidebar -->
-<div id="sidebar">
-	<div class="inner">
-
-		<!-- Search -->
-		<section id="search" class="alt">
-			<form method="post" action="#">
-				<input type="text" name="query" id="query" placeholder="Search" />
-			</form>
-		</section>
-
-		<!-- Menu -->
-		<nav id="menu">
-			<header class="major">
-				<h2>Menu</h2>
-			</header>
-			<ul>
-				<li><a href="{{url_for('index')}}">Homepage</a></li>
-				<li><a href="{{url_for('generic')}}">Generic</a></li>
-				<li><a href="{{url_for('weather')}}">Weather</a></li>
-				<li><a href="{{url_for('transactions.index')}}">Manage Expenses</a></li>
-				<li><a href="{{url_for('blog.home')}}">Blogs</a></li>
-				<span class="opener"></span>
-				<ul>
-					<li><a href="#"></a></li>
-
-				</ul>
-				</li>
-				<li><a href="#"></a></li>
-
-				<li>
-					<span class="opener"></span>
-					<ul>
-						<li><a href="#"></a></li>
-
-					</ul>
-				</li>
-				<li><a href="#"></a></li>
-
-			</ul>
-		</nav>
-
-		<!-- Section -->
-		<section>
-			<header class="major">
-				<h2></h2>
-			</header>
-			<div class="mini-posts">
-				<article>
-					<a href="#" class="image"><img src="" alt="" /></a>
-
-				</article>
-				<article>
-					<a href="#" class="image"><img src="" alt="" /></a>
-
-				</article>
-				<article>
-					<a href="#" class="image"><img src="" alt="" /></a>
-
-				</article>
-			</div>
-			<ul class="actions">
-				<li><a href="#" class="button">More</a></li>
-			</ul>
-		</section>
-
-		<!-- Section -->
-		<section>
-			<header class="major">
-				<h2>Get in touch</h2>
-			</header>
-
-			<ul class="contact">
-				<li class="icon solid fa-envelope"><a href="#"></a></li>
-				<li class="icon solid fa-phone"></li>
-				<li class="icon solid fa-home"><br />
-				</li>
-			</ul>
-		</section>
-
-		<!-- Footer -->
-		{% endblock content %}
+        <!-- Pest Prediction Feature -->
+        <div class="col-md-4 text-center mb-4">
+            <div class="feature-icon mb-3">
+                <!-- Using Font Awesome bug icon -->
+                <i class="fas fa-bug fa-5x text-danger"></i>
+            </div>
+            <h4 class="fw-bold">Pest Prediction</h4>
+            <p class="text-muted">
+                Identify potential pest threats early and protect your crops with our advanced AI-driven analysis.
+            </p>
+            <a href="#" class="btn btn-outline-danger">Learn More</a>
+        </div>
+    </div>
+</section>
+{% endblock content %}

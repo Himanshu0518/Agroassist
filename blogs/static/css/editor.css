@@ -1,0 +1,52 @@
+/* General Page Styling */
+body {
+    background-color: #FFFFE0;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Form Styling */
+.card {
+    max-width: 1550px;
+    margin: auto;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.card-header {
+    font-size: 2rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+input[type="text"] {
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 1.5rem;
+}
+
+/* Quill Editor Styling */
+#editor-container {
+    height: 450px;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+    font-size: 1.25rem;
+}
+
+/* Submit Button */
+button {
+    font-size: 2rem;
+    border-radius: 8px;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #28a7a1;
+    color: white;
+}

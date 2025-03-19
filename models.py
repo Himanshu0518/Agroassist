@@ -31,3 +31,16 @@ class Transaction(db.Model):
     
     def __repr__(self):
         return f"<Transaction {self.id} - {self.transaction_type} {self.amount}>"
+
+class Blog(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    title = db.Column(db.String(255), nullable=False)
+    subtitle = db.Column(db.String(255))
+    content = db.Column(db.Text, nullable=False)
+    image = db.Column(db.String(255))  # Store image path
+    created_at = db.Column(db.DateTime, nullable=False, default=lambda: datetime.now(timezone.utc))
+
+    def __repr__(self):
+        return f"<Blog {self.id} - {self.title}>"
+    

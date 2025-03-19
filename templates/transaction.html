@@ -64,12 +64,29 @@
         </div>
       </div>
      
-
+      <div class="container py-5"> 
+        <div class="summary-container">
+            <div class="summary-box summary-earning">
+                <p>Total Earning</p>
+                <p id="total-earning">₹{{ earnings }}</p>
+            </div>
+            <div class="summary-box summary-expense">
+                <p>Total Expense</p>
+                <p id="total-expense">₹{{  expenses }}</p>
+            </div>
+            <div class="summary-box summary-net">
+                <p>Net Profit/Loss</p>
+                <p id="net-balance">₹{{ (earnings -  expenses) }}</p>
+            </div>
+        </div>
+        
+    </div>
       
+
     <div class="container py-5">
       <div class="col">
         <div class="card">
-            <div class="card-header">Recent Transactions</div>
+            <div class="card-header text-center">Recent Transactions</div>
             <div class="card-body">
                 <table class="table table-striped">
                     <thead>

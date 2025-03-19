@@ -10798,3 +10798,10 @@ header.masthead .post-heading .meta a {
 }
 
 
+#google_translate_element {
+  margin-left: 15px;
+  display: inline-block;
+}
+.navbar-nav {
+  align-items: center;
+}

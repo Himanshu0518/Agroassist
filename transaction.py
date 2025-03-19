@@ -33,6 +33,7 @@ def get_transactions():
      LIMIT 10;
     """)
 
+  
     # Execute queries
     expense_result = db.session.execute(expense_query, {"user_id": session["user_id"]} ).fetchall()
     earning_result = db.session.execute(earning_query, {"user_id": session["user_id"]}).fetchall()
@@ -53,6 +54,25 @@ def get_transactions():
         ]
     }
     return transactions 
+
+def get_earning_expense_report():
+     query = text("""
+        SELECT transaction_type, SUM(amount) as amount 
+        FROM "transaction" 
+        WHERE user_id = :user_id 
+        GROUP BY transaction_type;
+    """)
+
+     report = db.session.execute(query, {"user_id": session["user_id"]}).fetchall()
+     earnings = 0
+     expenses = 0
+     for row in report:
+        if row.transaction_type == "earning":
+            earnings = row.amount
+        elif row.transaction_type == "expense":
+            expenses = row.amount
+     
+     return {"earnings": earnings, "expenses": expenses}
 
 @transactions_bp.route('/', methods=['GET', 'POST'])
 def index():
@@ -79,8 +99,24 @@ def index():
         return redirect(url_for('transactions.index'))
 
     recent_records = get_transactions().get('past_ten')
+    # query = text("""
+    #     SELECT transaction_type, SUM(amount) as amount 
+    #     FROM "transaction" 
+    #     WHERE user_id = :user_id 
+    #     GROUP BY transaction_type;
+    # """)
 
-    return render_template('transaction.html', form=form , recent_records = recent_records)
+    # report = db.session.execute(query, {"user_id": session["user_id"]}).fetchall()
+    # earnings = 0
+    # expenses = 0
+    # for row in report:
+    #     if row.transaction_type == "earning":
+    #         earnings = row.amount
+    #     elif row.transaction_type == "expense":
+    #         expenses = row.amount
+    report = get_earning_expense_report()
+
+    return render_template('transaction.html', form=form , recent_records = recent_records , earnings=report['earnings'], expenses=report['expenses'])
 
 # API to get transaction data for Chart.js
 @transactions_bp.route('/data')
@@ -104,7 +140,9 @@ def delete_transaction(transaction_id):
         flash("Transaction deleted successfully!", "success")
         recent_records = get_transactions().get('past_ten')
         form = TransactionForm()
-        return render_template('transaction.html', form=form , recent_records = recent_records)
+        report = get_earning_expense_report()
+        return render_template('transaction.html', form=form , recent_records = recent_records , earnings=report['earnings'], expenses=report['expenses'])
+
         
     else:
         return jsonify({"error": "Transaction not found"}), 404
