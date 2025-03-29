@@ -4,106 +4,82 @@
     <title>{% block title %}{{ title|default("AgroAssist") }}{% endblock %}</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <!-- Bootstrap CSS (using Bootstrap 5) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     {% block styles %}{% endblock %}
-    <script src="https://kit.fontawesome.com/247a3fe65e.js" crossorigin="anonymous"></script>
 </head>
-
 <body>
-    <div id="wrapper">
+    <div id="wrapper" class="d-flex">
         <!-- Sidebar -->
-        <div id="sidebar" class="active">
-            <div class="inner">
-                <section id="search" class="alt">
-                    <div class="profile">Profile</div>
-                </section>
-                <nav id="menu">
-                    <header class="major">
-                        <h2>Menu</h2>
-                    </header>
-                    <ul>
-                        <li><a href="{{ url_for('index') }}">Homepage</a></li>
-                        <li><a href="{{ url_for('generic') }}">Generic</a></li>
-                        <li><a href="{{ url_for('weather') }}" target="__blank">Weather</a></li>
-                        <li><a href="{{ url_for('transactions.index') }}" target="__blank">Manage Expenses</a></li>
-                        <li><a href="{{ url_for('blog.home') }}" target="__blank">Blogs</a></li>
-                    </ul>
-                </nav>
+        <nav id="sidebar" class="bg-dark text-white">
+            <div class="sidebar-header text-center py-4">
+                <img src="https://via.placeholder.com/100" alt="Profile" class="rounded-circle mb-2">
+                <h4>AgroAssist</h4>
             </div>
-        </div>
-
-        <!-- Toggle Button -->
-        <button id="sidebarToggle" class="btn btn-primary toggle-btn">
-            <i class="fa-solid fa-bars"></i>
-        </button>
+            <ul class="list-unstyled components ps-3">
+                <li><a href="{{ url_for('index') }}" class="text-white text-decoration-none"><i class="fas fa-home"></i> Homepage</a></li>
+                <li><a href="{{ url_for('generic') }}" class="text-white text-decoration-none"><i class="fas fa-info-circle"></i> Generic</a></li>
+                <li><a href="{{ url_for('weather') }}" class="text-white text-decoration-none" target="_blank"><i class="fas fa-cloud-sun"></i> Weather</a></li>
+                <li><a href="{{ url_for('transactions.index') }}" class="text-white text-decoration-none" target="_blank"><i class="fas fa-wallet"></i> Manage Expenses</a></li>
+                <li><a href="{{ url_for('blog.home') }}" class="text-white text-decoration-none" target="_blank"><i class="fas fa-blog"></i> Blogs</a></li>
+            </ul>
+        </nav>
 
         <!-- Main Content -->
-        <div id="main" class="vh-100 d-flex justify-content-center align-items-center">
-            <div class="inner">
-                <header id="header" class="text-center"
-                    style="position: relative; background: url('{{ url_for('static', filename='images/header-bg.jpg') }}') no-repeat center center; background-size: cover; padding: 100px 0;">
-                    <!-- Overlay for darkening the background image -->
-                    <div class="overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5);"></div>
-                    <div class="container position-relative">
-                        <h1 class="logo text-white fw-bold">AgroAssist</h1>
-                        <p class="lead text-white">Empowering Farmers with Smart Insights & Innovative Solutions</p>
-                    </div>
-                </header>
-                
-                {% block content %}{% endblock content %}
-            </div>
+        <div id="main" class="flex-grow-1">
+            <header id="header" class="text-center position-relative" style="background: url('{{ url_for('static', filename='images/header-bg.jpg') }}') no-repeat center center; background-size: cover; padding: 120px 0;">
+                <div class="overlay position-absolute w-100 h-100" style="top: 0; left: 0; background: rgba(0,0,0,0.5);"></div>
+                <div class="container position-relative text-white">
+                    <h1 class="logo fw-bold">{{ title }}</h1>
+                    <p class="lead">Empowering Farmers with Smart Insights & Innovative Solutions</p>
+                </div>
+            </header>
+            
+            <main class="container my-4">
+                {% block content %}{% endblock %}
+            </main>
         </div>
+    </div>
 
-        <!-- Footer -->
-        <footer class="bg-dark text-white py-4 mt-auto">
-            <div class="container">
-              <div class="row">
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white py-4 mt-auto">
+        <div class="container">
+            <div class="row">
                 <!-- About Section -->
                 <div class="col-md-4 mb-3">
-                  <h5>About AgroAssist</h5>
-                  <p class="small">
-                    Empowering farmers with smart insights and innovative solutions to enhance productivity and sustainability.
-                  </p>
+                    <h5>About AgroAssist</h5>
+                    <p class="small">Empowering farmers with smart insights and innovative solutions to enhance productivity and sustainability.</p>
                 </div>
                 <!-- Quick Links -->
                 <div class="col-md-4 mb-3">
-                  <h5>Quick Links</h5>
-                  <ul class="list-unstyled">
-                    <li><a href="{{ url_for('index') }}" class="text-white text-decoration-none">Homepage</a></li>
-                    <li><a href="{{ url_for('blog.home') }}" class="text-white text-decoration-none">Blogs</a></li>
-                    <li><a href="{{ url_for('transactions.index') }}" class="text-white text-decoration-none">Manage Expenses</a></li>
-                  </ul>
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{{ url_for('index') }}" class="text-white text-decoration-none">Homepage</a></li>
+                        <li><a href="{{ url_for('blog.home') }}" class="text-white text-decoration-none">Blogs</a></li>
+                        <li><a href="{{ url_for('transactions.index') }}" class="text-white text-decoration-none">Manage Expenses</a></li>
+                    </ul>
                 </div>
                 <!-- Social Media -->
                 <div class="col-md-4 mb-3">
-                  <h5>Follow Us</h5>
-                  <ul class="list-inline">
-                    <li class="list-inline-item">
-                      <a href="#" class="text-white text-decoration-none">
-                        <i class="fab fa-twitter fa-lg"></i>
-                      </a>
-                    </li>
-                    <li class="list-inline-item">
-                      <a href="#" class="text-white text-decoration-none">
-                        <i class="fab fa-facebook-f fa-lg"></i>
-                      </a>
-                    </li>
-                    <li class="list-inline-item">
-                      <a href="#" class="text-white text-decoration-none">
-                        <i class="fab fa-instagram fa-lg"></i>
-                      </a>
-                    </li>
-                  </ul>
+                    <h5>Follow Us</h5>
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a href="#" class="text-white text-decoration-none"><i class="fab fa-twitter fa-lg"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class="text-white text-decoration-none"><i class="fab fa-facebook-f fa-lg"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class="text-white text-decoration-none"><i class="fab fa-instagram fa-lg"></i></a></li>
+                    </ul>
                 </div>
-              </div>
-              <div class="text-center mt-3">
-                <small>&copy; {{ current_year|default(2023) }} AgroAssist. All rights reserved.</small>
-              </div>
             </div>
-          </footer>
-    </div>
+            <div class="text-center mt-3">
+                <small>&copy; {{ current_year|default(2023) }} AgroAssist. All rights reserved.</small>
+            </div>
+        </div>
+    </footer>
 
+    <!-- Scripts -->
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     {% block scripts %}{% endblock %}

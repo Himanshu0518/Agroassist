@@ -16,7 +16,12 @@ app = Flask(__name__)
 
 app.register_blueprint(transactions_bp)
 from blogs.views import blog_bp
+from crop_recommendation.recommendation import recom_bp
+from pest_prediction.pest_pred import pest_bp
+
+app.register_blueprint(pest_bp)
 app.register_blueprint(blog_bp)
+app.register_blueprint(recom_bp)
 
 app.secret_key = "your_secret_key_here" 
 # Add max and min functions to Jinja2 globals
@@ -51,7 +56,7 @@ weather_images = {
 @app.route("/")
 @app.route("/home")
 def index():   
-    return render_template("index.html", title="Home")
+    return render_template("index.html", title="AgroAssist")
 
 
 @app.route("/generic")

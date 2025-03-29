@@ -1,0 +1,178 @@
+{
+    "Paddy": {
+        "Assam": 64496.17,
+        "Bihar": 27524.75,
+        "Chhattisgarh": 28252.14,
+        "Gujarat": 34752.67,
+        "Haryana": 46020.54,
+        "Himachal Pradesh": 51431.64,
+        "Jharkhand": 20659.93,
+        "Karnataka": 31965.11,
+        "Kerala": 58925.66,
+        "Madhya Pradesh": 68253.63,
+        "Maharashtra": 35201.18,
+        "Odisha": 67566.58,
+        "Punjab": 38204.5,
+        "Tamil Nadu": 52942.41,
+        "Telangana": 59935.95,
+        "Uttar Pradesh": 62767.43,
+        "West Bengal": 44078.68
+    },
+
+    "Maize": {
+        "Bihar": 57100.97,
+        "Gujarat": 37446.85,
+        "Himachal Pradesh": 40234.05,
+        "Jharkhand": 18028.54,
+        "Karnataka": 40568.42,
+        "Madhya Pradesh": 38752.06,
+        "Maharashtra": 31695.78,
+        "Odisha": 57281.98,
+        "Punjab": 28573.42,
+        "Rajasthan": 50781.52,
+        "Tamil Nadu": 24013.02,
+        "Telangana": 53016.43,
+        "Uttar Pradesh": 52703.3
+    },
+
+    "Sunflower": {
+    "Andhra Pradesh": 61548.78,
+    "Bihar": 58394.25,
+    "Karnataka": 52619.44
+  },
+
+  "Wheat": {
+    "Bihar": 61055.5,
+    "Chhattisgarh": 43167.44,
+    "Gujarat": 55176.43,
+    "Haryana": 72474.94,
+    "Himachal Pradesh": 61293.38,
+    "Jharkhand": 58577.82,
+    "Karnataka": 41457.7,
+    "Madhya Pradesh": 53491.77,
+    "Maharashtra": 68920.47,
+    "Punjab": 69452.42,
+    "Rajasthan": 80947.34,
+    "Uttar Pradesh": 75951.54,
+    "West Bengal": 60397.75
+  },
+
+  "Rice": {
+    "Andhra Pradesh": 103587.75,
+    "Assam": 57648.31,
+    "Bihar": 54310.62,
+    "Chhattisgarh": 61502.08,
+    "Gujarat": 69406.36,
+    "Haryana": 102128.78,
+    "Himachal Pradesh": 67854.04,
+    "Jharkhand": 62415.28,
+    "Karnataka": 94059.5,
+    "Kerala": 100909.98,
+    "Madhya Pradesh": 63707.36,
+    "Maharashtra": 93348.86,
+    "Odisha": 71291.08,
+    "Punjab": 101344.4,
+    "Tamil Nadu": 88380.14,
+    "Telangana": 113266.74,
+    "Uttar Pradesh": 74657.27,
+    "West Bengal": 74657.27
+  },
+
+  "Sugarcane": {
+    "Andhra Pradesh": 158747.78,
+    "Gujarat": 147221.34,
+    "Haryana": 175823.04,
+    "Karnataka": 131602.58,
+    "Maharashtra": 242597.98,
+    "Tamil Nadu": 249971.06,
+    "Uttar Pradesh": 164137.39
+  } ,
+    "Barley": {
+      "India": 25000
+    },
+    "Bean": {
+      "India": 28000
+    },
+    "Dagussa": {
+      "India": 22000
+    },
+    "Niger seed": {
+      "India": 73420
+    },
+    "Pea": {
+      "India": 26000
+    },
+    "Potato": {
+      "India": 103500
+    },
+    "Red Pepper": {
+      "India": 90000
+    },
+    "Sorghum": {
+      "India": 18118
+    },
+    "Teff": {
+      "India": 24000
+    },
+    "Apple": {
+      "India": 150000
+    },
+    "Banana": {
+      "India": 100000
+    },
+    "Blackgram": {
+      "India": 28674
+    },
+    "Chickpea": {
+      "India": 23882
+    },
+    "Coconut": {
+      "India": 40000
+    },
+    "Coffee": {
+      "India": 80000
+    },
+    "Cotton": {
+      "India": 41067
+    },
+    "Grapes": {
+      "India": 120000
+    },
+    "Jute": {
+      "India": 35000
+    },
+    "Kidneybeans": {
+      "India": 28000
+    },
+    "Lentil": {
+      "India": 25000
+    },
+    "Mango": {
+      "India": 60000
+    },
+    "Mothbeans": {
+      "India": 20000
+    },
+    "Mungbean": {
+      "India": 28674
+    },
+    "Muskmelon": {
+      "India": 50000
+    },
+    "Orange": {
+      "India": 80000
+    },
+    "Papaya": {
+      "India": 90000
+    },
+    "Pigeonpeas": {
+      "India": 38909
+    },
+    "Pomegranate": {
+      "India": 100000
+    },
+    "Watermelon": {
+      "India": 45000
+    }
+
+}

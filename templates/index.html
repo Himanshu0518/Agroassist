@@ -2,18 +2,11 @@
 
 {% block content %}
 <!-- Hero Section -->
-<section class="container-fluid hero-section">
-    <div class="row align-items-center text-center">
-        <div class="col-lg-6">
-            <h1 class="fw-bold text-success">Welcome to AgroAssist</h1>
-            <p class="lead text-muted">
-                Empowering farmers with smart insights. Our platform provides advanced tools to help you decide which crops to plant and detect pests early—boosting productivity and sustainability on your farm.
-            </p>
-        </div>
-        <div class="col-lg-6">
-            <!-- Replace with a suitable hero image -->
-            <img src="#" alt="AgroAssist" class="img-fluid">
-        </div>
+<section class="hero-section text-white py-5"  background-size: cover;">
+    <div class="container text-center">
+        <h1 class="fw-bold">Welcome to AgroAssist</h1>
+        <p class="lead">Empowering farmers with smart insights! Get AI-based crop recommendations and pest predictions.</p>
+       
     </div>
 </section>
 
@@ -21,30 +14,28 @@
 <section class="container mt-5">
     <div class="row justify-content-center">
         <!-- Crop Recommendation Feature -->
-        <div class="col-md-4 text-center mb-4">
-            <div class="feature-icon mb-3">
-                <!-- Using Font Awesome seedling icon -->
-                <i class="fas fa-seedling fa-5x text-success"></i>
+        <div class="col-md-5 text-center mb-4">
+            <div class="card shadow p-3">
+                <img src="https://images.unsplash.com/photo-1565061823802-267ae32f1a94?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=60" class="card-img-top" alt="Crop Recommendation">
+                <div class="card-body">
+                    <h4 class="fw-bold">🌱 Crop Recommendation</h4>
+                    <p class="text-muted">Discover the best crop options tailored to your farm conditions for increased profitability.</p>
+                    <a href="{{ url_for('recommendation.recomm_index') }}" class="btn btn-success">Try Now</a>
+                </div>
             </div>
-            <h4 class="fw-bold">Crop Recommendation</h4>
-            <p class="text-muted">
-                Discover the best crop options tailored to your farm conditions for increased profitability.
-            </p>
-            <a href="#" class="btn btn-outline-success">Learn More</a>
         </div>
 
         <!-- Pest Prediction Feature -->
-        <div class="col-md-4 text-center mb-4">
-            <div class="feature-icon mb-3">
-                <!-- Using Font Awesome bug icon -->
-                <i class="fas fa-bug fa-5x text-danger"></i>
+        <div class="col-md-5 text-center mb-4">
+            <div class="card shadow p-3">
+                <img src="https://images.unsplash.com/photo-1587032234385-4d3f69b4f5b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=60" class="card-img-top" alt="Pest Prediction">
+                <div class="card-body">
+                    <h4 class="fw-bold">🐛 Pest Prediction</h4>
+                    <p class="text-muted">Identify potential pest threats early and protect your crops with our advanced AI analysis.</p>
+                    <a href="{{ url_for('pest_prediction.pest_index') }}" class="btn btn-danger">Try Now</a>
+                </div>
             </div>
-            <h4 class="fw-bold">Pest Prediction</h4>
-            <p class="text-muted">
-                Identify potential pest threats early and protect your crops with our advanced AI-driven analysis.
-            </p>
-            <a href="#" class="btn btn-outline-danger">Learn More</a>
         </div>
     </div>
 </section>
-{% endblock content %}
+{% endblock %}

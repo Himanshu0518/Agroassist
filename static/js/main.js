@@ -1,38 +1,38 @@
 document.addEventListener("DOMContentLoaded", function () {
-  let sidebar = document.getElementById("sidebar");
-  let toggleBtn = document.getElementById("sidebarToggle");
-  let mainContent = document.getElementById("main");
+  const sidebar = document.getElementById("sidebar");
+  const toggleBtn = document.getElementById("sidebarToggle");
+  const mainContent = document.getElementById("main");
 
-  // Toggle sidebar visibility
+  // Toggle sidebar visibility on button click
   toggleBtn.addEventListener("click", function () {
-      // Toggle the sidebar's closed class
-      sidebar.classList.toggle("closed");
+    sidebar.classList.toggle("closed");
 
-      // If sidebar is closed, remove main content margin; else, add margin equal to sidebar width
-      if (sidebar.classList.contains("closed")) {
-          toggleBtn.style.left = "20px"; // Move toggle button to the left
-          mainContent.style.marginLeft = "0"; // Remove extra space
-      } else {
-          toggleBtn.style.left = "260px"; // Position toggle button aligned with sidebar
-          mainContent.style.marginLeft = "250px"; // Reserve space for sidebar
-      }
+    if (sidebar.classList.contains("closed")) {
+      // When sidebar is closed, move toggle button and remove left margin from main content
+      toggleBtn.style.left = "20px";
+      mainContent.style.marginLeft = "0";
+    } else {
+      // When sidebar is open, adjust positions accordingly
+      toggleBtn.style.left = "260px";
+      mainContent.style.marginLeft = "250px";
+    }
   });
 
-  // Responsive behavior on window resize
+  // Adjust layout responsively on window resize
   window.addEventListener("resize", () => {
-      if (window.innerWidth <= 768) {
-          // For small screens, always hide sidebar and remove margin
-          sidebar.classList.add("closed");
-          toggleBtn.style.left = "20px";
-          mainContent.style.marginLeft = "0";
-      } else {
-          // For larger screens, show sidebar and set margin
-          sidebar.classList.remove("closed");
-          toggleBtn.style.left = "260px";
-          mainContent.style.marginLeft = "250px";
-      }
+    if (window.innerWidth <= 768) {
+      // For small screens, hide sidebar and set toggle button to the left
+      sidebar.classList.add("closed");
+      toggleBtn.style.left = "20px";
+      mainContent.style.marginLeft = "0";
+    } else {
+      // For larger screens, show sidebar and reset margins
+      sidebar.classList.remove("closed");
+      toggleBtn.style.left = "260px";
+      mainContent.style.marginLeft = "250px";
+    }
   });
 
-  // Trigger resizing once to set initial layout
+  // Trigger the resize event once to set the initial layout correctly
   window.dispatchEvent(new Event("resize"));
 });

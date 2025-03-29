@@ -1,298 +1,260 @@
-/* ============================================
-   Global Styles
-============================================ */
+/* Global Styles */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-    font-family: 'Open Sans', sans-serif;
-    line-height: 1.6;
-    background: #f7f7f7;
-    color: #333;
-  }
-  
-  /* ============================================
-     Sidebar Styling
-  ============================================ */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f7f7f7;
+  color: #333;
+}
+
+/* Wrapper */
+#wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+#sidebar {
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  color: #ecf0f1;
+  width: 250px;
+  min-height: 100vh;
+  padding: 20px;
+  transition: transform 0.3s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+}
+
+#sidebar .sidebar-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#sidebar .sidebar-header img {
+  width: 100px;
+  height: 100px;
+}
+
+#sidebar ul.components {
+  list-style: none;
+  padding-left: 0;
+}
+
+#sidebar ul.components li {
+  margin-bottom: 15px;
+}
+
+#sidebar ul.components li a {
+  color: #ecf0f1;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+#sidebar ul.components li a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Toggle Button */
+.toggle-btn {
+  position: fixed;
+  top: 20px;
+  left: 260px;
+  z-index: 1002;
+  background: #3498db;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: left 0.3s ease;
+}
+
+/* Main Content */
+#main {
+  margin-left: 250px;
+  width: calc(100% - 250px);
+  transition: margin-left 0.3s ease;
+}
+
+header {
+  display: flex;
+  align-items: center; /* Keeps content vertically aligned */
+  justify-content: space-between;
+  height: 50px; /* Adjust this value */
+  padding: 5px 10px;
+  background: rgb(152, 241, 152);
+}
+
+header#header {
+  position: relative;
+  padding: 120px 0;
+}
+
+header#header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+ 
+}
+
+header#header .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 100px 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+/* Cards */
+.card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  object-fit: cover;
+  width: 100%;
+  height: 200px;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+/* Form Styles */
+form fieldset {
+  border: 2px solid #27ae60;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+form legend {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #27ae60;
+}
+
+/* Result & Forecast Section */
+.result-container {
+  margin-top: 30px;
+}
+
+.table {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+.table th {
+  background: #3498db;
+  color: #fff;
+}
+
+/* Forecast Section */
+.forecast-section {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 2px solid #ddd;
+}
+
+.forecast-plot, .historical-forecast {
+  margin: 20px auto;
+  text-align: center;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.forecast-plot h5, .historical-forecast h5 {
+  margin-bottom: 10px;
+  color: #27ae60;
+  font-weight: bold;
+}
+
+/* Footer */
+footer.footer {
+  background: #34495e;
+  color: #ecf0f1;
+  padding: 40px 0;
+  border-top: 2px solid #2c3e50;
+}
+
+footer.footer h5 {
+  color: #ecf0f1;
+  margin-bottom: 15px;
+}
+
+footer.footer p,
+footer.footer a {
+  font-size: 0.9rem;
+  color: #ecf0f1;
+}
+
+footer.footer a {
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+footer.footer a:hover {
+  color: #1abc9c;
+}
+
+/* Loading & Error */
+#loading, #error-message {
+  margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   #sidebar {
-    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-    color: #ecf0f1;
-    width: 250px;
-    height: 100vh;
-    position: fixed;
-    left: 0;
-    top: 0;
-    padding: 20px;
-    overflow-y: auto;
-    transition: transform 0.3s ease;
-    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.3);
-    z-index: 1001;
-    border-right: 1px solid rgba(236, 240, 241, 0.2);
-  }
-  
-  #sidebar nav ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  #sidebar nav ul li {
-    margin-bottom: 15px;
-  }
-  
-  #sidebar nav ul li a {
-    display: flex;
-    align-items: center;
-    color: #ecf0f1;
-    text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-  }
-  
-  #sidebar nav ul li a i {
-    margin-right: 10px;
-    font-size: 1.1rem;
-  }
-  
-  #sidebar nav ul li a:hover {
-    background: rgba(52, 73, 94, 0.8);
-    transform: translateX(5px);
-  }
-  
-  /* Closed state */
-  #sidebar.closed {
     transform: translateX(-250px);
   }
-  
-  /* ============================================
-     Toggle Button Styling
-  ============================================ */
-  .toggle-btn {
-    position: fixed;
-    top: 20px;
-    left: 260px;
-    z-index: 1002;
-    background: #3498db;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    font-size: 1.2rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: left 0.3s ease;
+  #main {
+    margin-left: 0;
+    width: 100%;
   }
-  
-  #sidebar.closed + .toggle-btn {
+  .toggle-btn {
     left: 20px;
   }
-  
-  /* ============================================
-     Main Content Styling
-  ============================================ */
-  #main {
-    margin-left: 250px;
-    transition: margin-left 0.3s ease;
-    padding: 20px;
-  }
-  
-  #sidebar.closed ~ #main {
-    margin-left: 0;
-  }
-  
-  /* ============================================
-     Hero Section
-  ============================================ */
-  .hero-section {
-    padding: 100px 20px;
-    background: linear-gradient(to right, #e0f7fa, #ffffff);
-    text-align: center;
-  }
-  
-  .hero-section h1 {
-    font-size: 3rem;
-    color: #2c3e50;
-    margin-bottom: 20px;
-  }
-  
-  .hero-section p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    color: #555;
-  }
-  
-  .hero-section img {
-    max-width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  }
-  
-  /* ============================================
-     Card Styling
-  ============================================ */
-  .card {
-    border: none;
-    border-radius: 10px;
-    background: #fff;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  }
-  
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
-  }
-  
-  .card-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 10px;
-  }
-  
-  .card img {
-    width: 60px;
-  }
-  
-  /* ============================================
-     Stat Card Styling
-  ============================================ */
-  .stat-card {
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .stat-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
-  }
-  
-  .stat-card h2 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-  }
-  
-  /* ============================================
-     Button Styling
-  ============================================ */
-  .btn-outline-primary,
-  .btn-outline-danger,
-  .btn-outline-success {
-    transition: all 0.3s ease;
-  }
-  
-  .btn-outline-primary:hover {
-    background-color: #007bff;
-    color: #fff;
-  }
-  
-  .btn-outline-danger:hover {
-    background-color: #dc3545;
-    color: #fff;
-  }
-  
-  .btn-outline-success:hover {
-    background-color: #28a745;
-    color: #fff;
-  }
-  
-  /* ============================================
-     Footer Styling
-  ============================================ */
-/* ============================================
-   Footer Styling
-============================================ */
-footer.footer {
-    background: #34495e; /* A slightly lighter dark shade than pure #2c3e50 */
-    color: #ecf0f1;
-    padding: 40px 0;
-    border-top: 2px solid #2c3e50;
-    font-family: 'Open Sans', sans-serif;
-  }
-  
-  footer.footer h5 {
-    font-size: 1.25rem;
-    margin-bottom: 15px;
-    color: #ecf0f1;
-  }
-  
-  footer.footer p,
-  footer.footer a {
-    font-size: 0.9rem;
-    color: #ecf0f1;
-  }
-  
-  footer.footer a {
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  
-  footer.footer a:hover {
-    color: #1abc9c;
-  }
-  
-  footer.footer .list-unstyled {
-    padding-left: 0;
-  }
-  
-  footer.footer .list-unstyled li {
-    margin-bottom: 10px;
-  }
-  
-  footer.footer .list-inline {
-    padding-left: 0;
-    margin-bottom: 0;
-  }
-  
-  footer.footer .list-inline li {
-    display: inline-block;
-    margin-right: 15px;
-  }
-  
-  
-  /* ============================================
-     Responsive Design
-  ============================================ */
-  @media (max-width: 768px) {
-    /* Sidebar adjustments */
-    #sidebar {
-      width: 100%;
-      position: fixed;
-      transform: translateX(-100%);
-    }
-    
-    #sidebar.closed {
-      transform: translateX(-100%);
-    }
-    
-    #sidebar.open {
-      transform: translateX(0);
-    }
-    
-    /* Force main content to occupy full width */
-    #main {
-      margin-left: 0 !important;
-    }
-    
-    /* Toggle button on small screens */
-    .toggle-btn {
-      left: 20px !important;
-    }
-    
-    /* Adjust hero section */
-    .hero-section {
-      text-align: center;
-      padding: 40px 10px;
-    }
-    
-    .hero-section h1 {
-      font-size: 2rem;
-    }
-  }
-  
+}
+
