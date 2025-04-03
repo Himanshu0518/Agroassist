@@ -8,7 +8,7 @@
 
 {% block content %}
 <!-- Hero Section -->
-<section class="pest-hero-section text-white py-5" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('{{ url_for('static', filename='images/pest-banner.jpg') }}'); background-size: cover; background-position: center;">
+<section class="pest-hero-section text-white py-5" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url("{{ url_for('static', filename='images/pest-banner.jpg') }}"); background-size: cover; background-position: center;">
     <div class="container py-4">
         <div class="row align-items-center">
             <div class="col-lg-7 py-3">
@@ -65,6 +65,7 @@
 {% if pest_result %}
 <div class="result">
     <h2>🔍 Detected Disease: <span style="color: red;">{{ pest_result }}</span></h2>
+
     <h3>🌱 Crop: <span style="color: green;">{{ crop_name }}</span></h3>
 </div>
 
