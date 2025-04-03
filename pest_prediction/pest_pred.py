@@ -15,22 +15,20 @@ pest_bp = Blueprint(
     url_prefix='/pest_prediction'
 )
 CROP_PEST_API_KEY = os.getenv('CROP_PEST_API_KEY')
+interpreter = tf.lite.Interpreter(model_path="predictive_models/pest_prediction.tflite")
+interpreter.allocate_tensors()
 
-model = tf.keras.models.load_model('predictive_models/pest_prediction.tflite')
+# Get input & output details
+input_details = interpreter.get_input_details()
+output_details = interpreter.get_output_details()
 
-# Define the target image size expected by your model (e.g., 224x224)
+# Define the target image size expected by your model
 IMG_HEIGHT, IMG_WIDTH = 150, 150
 
 def get_hardiness_map(species_id):
-    
     url = f"https://perenual.com/api/hardiness-map?species_id={species_id}&key={CROP_PEST_API_KEY}"
     response = requests.get(url)
-
-    if response.status_code == 200:
-        return url  # Return the image URL directly
-    else:
-        return None  # Handle errors
-
+    return url if response.status_code == 200 else None
 
 @pest_bp.route('/pest_detection')
 def pest_index():
@@ -53,36 +51,36 @@ def image_classification():
                     'Early_blight', 'Late_blight', 'Leaf_Mold', 'Septoria_leaf_spot', 'Spider_mites Two-spotted_spider_mite', 
                     'Target_Spot', 'Tomato_Yellow_Leaf_Curl_Virus', 'Tomato_mosaic_virus', 'healthy']
         
+        # Process the uploaded image
         image = Image.open(io.BytesIO(image_file.read()))
         image = image.convert("RGB")  # Ensure image is in RGB format
-
-        # Resize image to the size expected by your model
         image = image.resize((IMG_WIDTH, IMG_HEIGHT))
-        image_array = np.array(image)
+        image_array = np.array(image, dtype=np.float32) / 255.0  # Normalize pixels
+        image_array = np.expand_dims(image_array, axis=0)  # Add batch dimension
 
-        # Normalize the image array if needed (e.g., scale pixel values to [0, 1])
-        image_array = image_array.astype("float32") / 255.0
+        # Run inference using TFLite model
+        interpreter.set_tensor(input_details[0]['index'], image_array)
+        interpreter.invoke()
+        predictions = interpreter.get_tensor(output_details[0]['index'])
 
-        # Expand dimensions to match the model input shape (batch_size, height, width, channels)
-        image_array = np.expand_dims(image_array, axis=0)
-
-        # Make predictions using the CNN model
-        predictions = model.predict(image_array)
-
-        # Process the prediction result as needed. For example:
-        # If using softmax output, get the index of the highest score:
+        # Get the predicted class
         predicted_class = np.argmax(predictions, axis=1)[0]
-       
+
+        # Fetch species details
         species_url = f"https://perenual.com/api/species-list?key={CROP_PEST_API_KEY}&q={crop_name}"
         species_response = requests.get(species_url).json()
         
-        if "data" in species_response and len(species_response["data"]) > 0:
+        hardiness_url = None
+        if "data" in species_response and species_response["data"]:
             species_id = species_response["data"][0]["id"]
             hardiness_url = get_hardiness_map(species_id)
-            print(species_id)
-            print(hardiness_url)
-    
-        return render_template("pest.html", pest_result=crop_lst[predicted_class-1], crop_name=crop_name, hardiness_map=hardiness_url)
+            print(f"Species ID: {species_id}")
+            print(f"Hardiness Map: {hardiness_url}")
+
+        return render_template("pest.html", 
+                               pest_result=crop_lst[predicted_class-1], 
+                               crop_name=crop_name, 
+                               hardiness_map=hardiness_url)
 
     except Exception as e:
-        return jsonify({"error": str(e)}), 500 
+        return jsonify({"error": str(e)}), 500
