@@ -19,13 +19,13 @@
                 <div class="card shadow border-0">
                     <div class="card-body p-4">
                         <h4 class="text-dark fw-bold mb-3">Quick Pest Check</h4>
-                        <p class="text-muted mb-4">Upload an image of your plant or describe symptoms to get instant pest identification.</p>
+                        <p class="text-muted mb-4">Upload an image of your plant </p>
                         <button class="btn btn-danger mb-2 w-100" data-bs-toggle="modal" data-bs-target="#uploadImageModal">
                             <i class="bi bi-camera-fill me-2"></i> Upload Image
                         </button>
-                        <button class="btn btn-outline-secondary w-100" data-bs-toggle="modal" data-bs-target="#describeSymptomModal">
+                        <!-- <button class="btn btn-outline-secondary w-100" data-bs-toggle="modal" data-bs-target="#describeSymptomModal">
                             <i class="bi bi-card-text me-2"></i> Describe Symptoms
-                        </button>
+                        </button> -->
                     </div>
                 </div>
             </div>
@@ -33,277 +33,7 @@
     </div>
 </section>
 
-<!-- Information Section -->
-<section class="container my-5">
-    <div class="row">
-        <div class="col-lg-8">
-            <h2 class="fw-bold mb-4">How Our Pest Prediction Works</h2>
-            <p class="lead text-muted">Our AI-powered pest prediction system uses multiple data sources to identify potential pest threats before they become visible.</p>
-            
-            <div class="row g-4 mt-3">
-                <div class="col-md-6">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="rounded-circle bg-danger bg-opacity-10 p-3 me-3">
-                                    <i class="bi bi-images text-danger" style="font-size: 1.5rem;"></i>
-                                </div>
-                                <h4 class="fw-bold mb-0">Image Analysis</h4>
-                            </div>
-                            <p class="text-muted">Upload images of your plants and our AI will detect early signs of pest infestation, even those invisible to the human eye.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="rounded-circle bg-danger bg-opacity-10 p-3 me-3">
-                                    <i class="bi bi-cloud-sun text-danger" style="font-size: 1.5rem;"></i>
-                                </div>
-                                <h4 class="fw-bold mb-0">Weather Analysis</h4>
-                            </div>
-                            <p class="text-muted">We analyze local weather patterns to predict conditions favorable for specific pest outbreaks in your area.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="rounded-circle bg-danger bg-opacity-10 p-3 me-3">
-                                    <i class="bi bi-geo-alt text-danger" style="font-size: 1.5rem;"></i>
-                                </div>
-                                <h4 class="fw-bold mb-0">Regional Tracking</h4>
-                            </div>
-                            <p class="text-muted">Track pest movement trends in your region to stay ahead of potential outbreaks heading toward your farm.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="rounded-circle bg-danger bg-opacity-10 p-3 me-3">
-                                    <i class="bi bi-clipboard-data text-danger" style="font-size: 1.5rem;"></i>
-                                </div>
-                                <h4 class="fw-bold mb-0">Historical Data</h4>
-                            </div>
-                            <p class="text-muted">We analyze past pest patterns on your farm to provide personalized predictions based on your specific conditions.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 mt-4 mt-lg-0">
-            <div class="card border-0 shadow-sm">
-                <div class="card-header bg-danger text-white py-3">
-                    <h4 class="fw-bold mb-0">Current Pest Alerts</h4>
-                </div>
-                <div class="card-body p-0">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item p-3">
-                            <div class="d-flex align-items-center">
-                                <div class="alert-icon bg-danger bg-opacity-10 p-2 rounded-circle me-3">
-                                    <i class="bi bi-exclamation-triangle text-danger"></i>
-                                </div>
-                                <div>
-                                    <h6 class="fw-bold mb-1">Aphid Alert</h6>
-                                    <p class="text-muted small mb-0">High risk in Northern regions</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="list-group-item p-3">
-                            <div class="d-flex align-items-center">
-                                <div class="alert-icon bg-warning bg-opacity-10 p-2 rounded-circle me-3">
-                                    <i class="bi bi-exclamation-triangle text-warning"></i>
-                                </div>
-                                <div>
-                                    <h6 class="fw-bold mb-1">Army Worm</h6>
-                                    <p class="text-muted small mb-0">Moderate risk in Western districts</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="list-group-item p-3">
-                            <div class="d-flex align-items-center">
-                                <div class="alert-icon bg-warning bg-opacity-10 p-2 rounded-circle me-3">
-                                    <i class="bi bi-exclamation-triangle text-warning"></i>
-                                </div>
-                                <div>
-                                    <h6 class="fw-bold mb-1">Whitefly</h6>
-                                    <p class="text-muted small mb-0">Moderate risk in Southern regions</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="list-group-item p-3">
-                            <div class="d-flex align-items-center">
-                                <div class="alert-icon bg-success bg-opacity-10 p-2 rounded-circle me-3">
-                                    <i class="bi bi-check-circle text-success"></i>
-                                </div>
-                                <div>
-                                    <h6 class="fw-bold mb-1">Bollworm</h6>
-                                    <p class="text-muted small mb-0">Low risk in all regions</p>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="card-footer bg-light">
-                    <a href="#" class="btn btn-outline-danger btn-sm d-block">View All Alerts</a>
-                </div>
-            </div>
-            
-            <div class="card border-0 shadow-sm mt-4">
-                <div class="card-body p-4">
-                    <h5 class="fw-bold mb-3">Need Expert Help?</h5>
-                    <p class="text-muted">Connect with a pest management specialist for personalized advice.</p>
-                    <a href="#" class="btn btn-outline-success d-block">Contact Specialist</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- Common Pests Section -->
-<!-- <section class="bg-light py-5 my-5">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h6 class="text-danger fw-bold">PEST LIBRARY</h6>
-            <h2 class="display-5 fw-bold">Common Crop Pests</h2>
-            <p class="lead text-muted mx-auto" style="max-width: 700px;">Familiarize yourself with the most common threats to your crops.</p>
-        </div>
-        
-        <div class="row g-4">
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="pest-card card h-100 border-0 shadow-sm">
-                    <img src="{{ url_for('static', filename='images/pest-aphid.jpg') }}" class="card-img-top" alt="Aphid">
-                    <div class="card-body">
-                        <h5 class="fw-bold">Aphids</h5>
-                        <p class="text-muted small mb-2">Small sap-sucking insects that cause stunted growth and leaf curling</p>
-                        <a href="#" class="btn btn-sm btn-outline-danger">Learn More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="pest-card card h-100 border-0 shadow-sm">
-                    <img src="{{ url_for('static', filename='images/pest-armyworm.jpg') }}" class="card-img-top" alt="Army Worm">
-                    <div class="card-body">
-                        <h5 class="fw-bold">Army Worms</h5>
-                        <p class="text-muted small mb-2">Caterpillars that move in large numbers and consume foliage rapidly</p>
-                        <a href="#" class="btn btn-sm btn-outline-danger">Learn More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="pest-card card h-100 border-0 shadow-sm">
-                    <img src="{{ url_for('static', filename='images/pest-whitefly.jpg') }}" class="card-img-top" alt="Whitefly">
-                    <div class="card-body">
-                        <h5 class="fw-bold">Whiteflies</h5>
-                        <p class="text-muted small mb-2">Tiny white insects that feed on plant sap and excrete honeydew</p>
-                        <a href="#" class="btn btn-sm btn-outline-danger">Learn More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="pest-card card h-100 border-0 shadow-sm">
-                    <img src="{{ url_for('static', filename='images/pest-bollworm.jpg') }}" class="card-img-top" alt="Bollworm">
-                    <div class="card-body">
-                        <h5 class="fw-bold">Bollworms</h5>
-                        <p class="text-muted small mb-2">Caterpillars that bore into cotton bolls and other fruit parts</p>
-                        <a href="#" class="btn btn-sm btn-outline-danger">Learn More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="text-center mt-4">
-            <a href="#" class="btn btn-outline-danger px-4">View All Pests</a>
-        </div>
-    </div>
-</section> -->
-
-
-
-<!-- Prediction Tool Section -->
-<section class="bg-light py-5 my-5">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-10">
-                <div class="card border-0 shadow">
-                    <div class="card-body p-5">
-                        <h3 class="fw-bold mb-4 text-center">Pest Prediction Tool</h3>
-                        <p class="text-muted text-center mb-4">Fill in the details below to get a personalized pest risk assessment for your crops.</p>
-                        
-                        <form id="pestPredictionForm">
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <label for="cropType" class="form-label fw-bold">Crop Type</label>
-                                    <select class="form-select" id="cropType" required>
-                                        <option value="" selected disabled>Select crop</option>
-                                        <option value="rice">Rice</option>
-                                        <option value="wheat">Wheat</option>
-                                        <option value="cotton">Cotton</option>
-                                        <option value="sugarcane">Sugarcane</option>
-                                        <option value="maize">Maize</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="growingStage" class="form-label fw-bold">Growing Stage</label>
-                                    <select class="form-select" id="growingStage" required>
-                                        <option value="" selected disabled>Select stage</option>
-                                        <option value="seedling">Seedling</option>
-                                        <option value="vegetative">Vegetative</option>
-                                        <option value="flowering">Flowering</option>
-                                        <option value="fruiting">Fruiting</option>
-                                        <option value="mature">Mature</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="region" class="form-label fw-bold">Region</label>
-                                    <select class="form-select" id="region" required>
-                                        <option value="" selected disabled>Select region</option>
-                                        <option value="north">Northern Region</option>
-                                        <option value="south">Southern Region</option>
-                                        <option value="east">Eastern Region</option>
-                                        <option value="west">Western Region</option>
-                                        <option value="central">Central Region</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="season" class="form-label fw-bold">Current Season</label>
-                                    <select class="form-select" id="season" required>
-                                        <option value="" selected disabled>Select season</option>
-                                        <option value="summer">Summer</option>
-                                        <option value="monsoon">Monsoon</option>
-                                        <option value="winter">Winter</option>
-                                        <option value="spring">Spring</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="temperature" class="form-label fw-bold">Average Temperature (°C)</label>
-                                    <input type="number" class="form-control" id="temperature" placeholder="e.g., 28" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="humidity" class="form-label fw-bold">Average Humidity (%)</label>
-                                    <input type="number" class="form-control" id="humidity" placeholder="e.g., 65" required>
-                                </div>
-                                <div class="col-12">
-                                    <label for="previousPests" class="form-label fw-bold">Previous Pest Issues (Optional)</label>
-                                    <textarea class="form-control" id="previousPests" rows="2" placeholder="Describe any pest issues you've had in the past..."></textarea>
-                                </div>
-                                <div class="col-12 text-center mt-4">
-                                    <button type="submit" class="btn btn-danger px-5 py-2">Get Prediction</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Modals -->
 <!-- Upload Image Modal -->
 <div class="modal fade" id="uploadImageModal" tabindex="-1" aria-labelledby="uploadImageModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -314,75 +44,43 @@
             </div>
             <div class="modal-body">
                 <p class="text-muted mb-3">Upload a clear image of your plant showing the affected areas for pest identification.</p>
-                <form>
+                <form action="{{ url_for('pest_prediction.image_classification') }}" method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="plantImage" class="form-label fw-bold">Select Image</label>
-                        <input class="form-control" type="file" id="plantImage" accept="image/*">
+                        <input class="form-control" type="file" name="pest_img" id="plantImage" accept="image/*" required>
                     </div>
                     <div class="mb-3">
-                        <label for="cropTypeImage" class="form-label fw-bold">Crop Type</label>
-                        <select class="form-select" id="cropTypeImage">
-                            <option selected>Select crop type</option>
-                            <option value="rice">Rice</option>
-                            <option value="wheat">Wheat</option>
-                            <option value="cotton">Cotton</option>
-                            <option value="other">Other</option>
-                        </select>
+                        <label for="plantImage" class="form-label fw-bold">Crop Name</label>
+                        <input class="form-control" type="text" name="pest_crop_name"  required>
                     </div>
+
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-danger">Analyze Image</button>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-danger">Analyze Image</button>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Describe Symptoms Modal -->
-<div class="modal fade" id="describeSymptomModal" tabindex="-1" aria-labelledby="describeSymptomModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title fw-bold" id="describeSymptomModalLabel">Describe Symptoms</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p class="text-muted mb-3">Describe the symptoms you're seeing on your plants for potential pest identification.</p>
-                <form>
-                    <div class="mb-3">
-                        <label for="cropTypeSymptom" class="form-label fw-bold">Crop Type</label>
-                        <select class="form-select" id="cropTypeSymptom">
-                            <option selected>Select crop type</option>
-                            <option value="rice">Rice</option>
-                            <option value="wheat">Wheat</option>
-                            <option value="cotton">Cotton</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="plantPart" class="form-label fw-bold">Affected Plant Part</label>
-                        <select class="form-select" id="plantPart">
-                            <option selected>Select affected part</option>
-                            <option value="leaves">Leaves</option>
-                            <option value="stem">Stem</option>
-                            <option value="fruits">Fruits/Seeds</option>
-                            <option value="roots">Roots</option>
-                            <option value="flowers">Flowers</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="symptoms" class="form-label fw-bold">Symptoms Description</label>
-                        <textarea class="form-control" id="symptoms" rows="3" placeholder="Describe what you're seeing (e.g., yellow spots, holes in leaves, wilting)"></textarea>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-danger">Identify Problem</button>
-            </div>
-        </div>
+{% if pest_result %}
+<div class="result">
+    <h2>🔍 Detected Disease: <span style="color: red;">{{ pest_result }}</span></h2>
+    <h3>🌱 Crop: <span style="color: green;">{{ crop_name }}</span></h3>
+</div>
+
+{% if hardiness.hardiness_zone %}
+    <h3>🌍 Hardiness Zone: <span style="color: blue;">{{ hardiness.hardiness_zone }}</span></h3>
+    <p>🌡️ Temperature Range: {{ hardiness.temperature_range }}</p>
+
+    <div class="image-container">
+        <h4>📍 Hardiness Map:</h4>
+        <img src="{{ hardiness.map_url }}" alt="Hardiness Map">
     </div>
+{% endif %}
+
+{% else %}
+
+{% endif %}
 </div>
 
 

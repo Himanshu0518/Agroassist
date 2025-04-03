@@ -2,11 +2,12 @@ from flask import Blueprint, render_template , session , redirect , url_for,requ
 import sqlite3
 from werkzeug.utils import secure_filename
 import os
+from math import ceil
 from datetime import datetime 
 #import json
 
 blog_bp = Blueprint('blog', __name__, template_folder='templates', static_folder='static', url_prefix='/blog')
-
+page = 0 
 
 UPLOAD_FOLDER = "blogs/static/assets/img/"
 ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg", "gif"}
@@ -21,20 +22,34 @@ def get_db_connection():
     conn.row_factory = sqlite3.Row
     return conn
 
+POSTS_PER_PAGE = 3  # Set how many posts to show per page
+
 @blog_bp.route('/')
 def home():
     conn = get_db_connection()
+
+    # Get the page number from the request, default to 1 if not provided
+    page = request.args.get('page', 1, type=int)
+
+    # Calculate offset for pagination
+    offset = (page - 1) * POSTS_PER_PAGE
+
+    # Get total number of posts for pagination calculation
+    total_posts = conn.execute("SELECT COUNT(*) FROM blog").fetchone()[0]
+    total_pages = ceil(total_posts / POSTS_PER_PAGE)  # Calculate total pages
+
+    # Fetch posts for the current page with LIMIT and OFFSET
     posts = conn.execute("""
         SELECT blog.*, user.username AS username
         FROM blog 
         LEFT JOIN user ON blog.user_id = user.id 
-        ORDER BY blog.created_at DESC;
+        ORDER BY blog.created_at DESC
+        LIMIT ? OFFSET ?;
+    """, (POSTS_PER_PAGE, offset)).fetchall()
 
-    """).fetchall() 
     conn.close()
 
-   
-    return render_template('blog_index.html',posts=posts)  # This template is in blogs/templates/
+    return render_template('blog_index.html', posts=posts, page=page, total_pages=total_pages)
 
 @blog_bp.route('/myBlog')
 def myBlog():

@@ -26,23 +26,24 @@ app.register_blueprint(recom_bp)
 app.secret_key = "your_secret_key_here" 
 # Add max and min functions to Jinja2 globals
 app.jinja_env.globals.update(round=round, max=max, min=min)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'  # Use SQLite for simplicity
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("SQLALCHEMY_DATABASE_URI")  # Use SQLite for simplicity
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-app.config["MAIL_SERVER"] = "smtp.gmail.com"  # For Gmail, use smtp.gmail.com
-app.config["MAIL_PORT"] = 587
+app.config["MAIL_SERVER"] = os.getenv("MAIL_SERVER") # For Gmail, use smtp.gmail.com
+app.config["MAIL_PORT"] = int(os.getenv("MAIL_PORT", 587)) 
 app.config["MAIL_USE_TLS"] = True
 app.config["MAIL_USE_SSL"] = False
-app.config["MAIL_USERNAME"] = "23226@iiitu.ac.in"  # Replace with your email
-app.config["MAIL_PASSWORD"] = "gaup uryx cgaa kwpj"  # Use an App Password for security
+app.config["MAIL_USERNAME"] = os.getenv("MAIL_USERNAME") # Replace with your email
+app.config["MAIL_PASSWORD"] = os.getenv("MAIL_PASSWORD")  # Use an App Password for security
+
 mail = Mail(app)
 
 init_db(app)
 migrate = Migrate(app, db)
 
-AGRO_API_KEY = os.getenv("AGRO_API_KEY", "c2339a94d63f41b15e4b9f88bc4d2ca6")
-OWM_API_KEY = os.getenv("OWM_API_KEY", "f148a720d1babb96307fe315da46696e")
-PEXELS_API_KEY = os.getenv("PEXELS_API_KEY", "mZ1aDkUKJMDjrdSH9Dk4R5DsHCpXx0B4ngnIqSRhX8NNEAspMlnKTqyU")
+AGRO_API_KEY = os.getenv("AGRO_API_KEY")
+OWM_API_KEY = os.getenv("OWM_API_KEY")
+PEXELS_API_KEY = os.getenv("PEXELS_API_KEY")
 
 # Weather images mapping
 weather_images = {
@@ -57,17 +58,6 @@ weather_images = {
 @app.route("/home")
 def index():   
     return render_template("index.html", title="AgroAssist")
-
-
-@app.route("/generic")
-def generic():
-    if "user_name" not in session:
-        flash("Login Required!")
-        return redirect(url_for('login', next=request.url))
-    else:
-        flash(f"Hi {session['user_name']}, have a good day!")
-
-    return render_template("generic.html", title="Generic")
 
 
 

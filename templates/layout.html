@@ -21,8 +21,7 @@
                 <h4>AgroAssist</h4>
             </div>
             <ul class="list-unstyled components ps-3">
-                <li><a href="{{ url_for('index') }}" class="text-white text-decoration-none"><i class="fas fa-home"></i> Homepage</a></li>
-                <li><a href="{{ url_for('generic') }}" class="text-white text-decoration-none"><i class="fas fa-info-circle"></i> Generic</a></li>
+                <li><a href="{{ url_for('index') }}" class="text-white text-decoration-none"><i class="fas fa-home"></i> Homepage</a></li>       
                 <li><a href="{{ url_for('weather') }}" class="text-white text-decoration-none" target="_blank"><i class="fas fa-cloud-sun"></i> Weather</a></li>
                 <li><a href="{{ url_for('transactions.index') }}" class="text-white text-decoration-none" target="_blank"><i class="fas fa-wallet"></i> Manage Expenses</a></li>
                 <li><a href="{{ url_for('blog.home') }}" class="text-white text-decoration-none" target="_blank"><i class="fas fa-blog"></i> Blogs</a></li>
@@ -31,10 +30,10 @@
 
         <!-- Main Content -->
         <div id="main" class="flex-grow-1">
-            <header id="header" class="text-center position-relative" style="background: url('{{ url_for('static', filename='images/header-bg.jpg') }}') no-repeat center center; background-size: cover; padding: 120px 0;">
+            <header id="header" class="text-center position-relative">
                 <div class="overlay position-absolute w-100 h-100" style="top: 0; left: 0; background: rgba(0,0,0,0.5);"></div>
                 <div class="container position-relative text-white">
-                    <h1 class="logo fw-bold">{{ title }}</h1>
+                    <h1 class="logo fw-bold">AgroAssist</h1>
                     <p class="lead">Empowering Farmers with Smart Insights & Innovative Solutions</p>
                 </div>
             </header>

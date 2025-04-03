@@ -84,6 +84,7 @@ body {
   margin-left: 250px;
   width: calc(100% - 250px);
   transition: margin-left 0.3s ease;
+ 
 }
 
 header {
@@ -92,7 +93,7 @@ header {
   justify-content: space-between;
   height: 50px; /* Adjust this value */
   padding: 5px 10px;
-  background: rgb(152, 241, 152);
+  background-color: #0fe067;
 }
 
 header#header {
@@ -115,10 +116,11 @@ header#header .container {
 }
 
 /* Hero Section */
-.hero-section {
+/* .hero-section {
   padding: 100px 20px;
   text-align: center;
-  color: #fff;
+  color: #120505;
+  background-color: #27ae60;
 }
 
 .hero-section h1 {
@@ -129,7 +131,7 @@ header#header .container {
 .hero-section p {
   font-size: 1.2rem;
   margin-bottom: 30px;
-}
+} */
 
 /* Cards */
 .card {

@@ -53,7 +53,20 @@
                     <hr class="my-4" />
                     {% endfor %}
 
-                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
+                    <!-- <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div> -->
+                    <div class="d-flex justify-content-end mb-4">
+                     
+                        {% if page < total_pages %}
+                            <a class="btn btn-primary text-uppercase" href="{{ url_for('blog.home', page=page+1) }}">Older Posts →</a>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="d-flex justify-content-start mb-4">
+                        {% if page > 1 %}
+                            <a class="btn btn-primary text-uppercase" href="{{ url_for('blog.home', page=page-1) }}">← previous Posts</a>
+                        {% endif %}
+                    </div>
+                    
                 </div>
             </div>
         </div>

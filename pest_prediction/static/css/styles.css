@@ -22,3 +22,22 @@
         align-items: center;
         justify-content: center;
     }
+
+   
+      .list-group-item {
+        font-size: 1.2rem;
+      }
+   
+    .result {
+        font-size: 20px;
+        color: #333;
+        margin: 20px 0;
+    }
+    .image-container {
+        margin-top: 20px;
+    }
+    img {
+        width: 80%;
+        max-width: 500px;
+        border-radius: 10px;
+    }
