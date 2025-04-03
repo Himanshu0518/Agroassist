@@ -1,5 +1,4 @@
 venv 
-config.json
 migrations
 __pycache__
 .env 
