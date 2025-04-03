@@ -57,7 +57,7 @@ weather_images = {
 @app.route("/")
 @app.route("/home")
 def index():   
-    return render_template("index.html", title="AgroAssist")
+    return render_template("index.html", title="")
 
 
 
@@ -186,10 +186,10 @@ def signup():
         #session["user_id"] = user.id
         
 
-        msg = Message("AgroAssist", 
+        msg = Message("Kisan Bandhu", 
                       sender="your_email@gmail.com", 
                       recipients=[new_user.email])
-        msg.body = f"Hello {new_user.username},\n\nThank you for signing up for our platform!\n\nBest Regards,\nAgroAssist"
+        msg.body = f"Hello {new_user.username},\n\nThank you for signing up for our platform!\n\nBest Regards,\nKisan Bandhu"
         try:
             mail.send(msg)
             print("Signup successful! A confirmation email has been sent.", "success")

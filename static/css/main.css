@@ -37,8 +37,8 @@ body {
 }
 
 #sidebar .sidebar-header img {
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
 }
 
 #sidebar ul.components {
@@ -307,3 +307,4 @@ footer.footer a:hover {
   }
 }
 
+ 
