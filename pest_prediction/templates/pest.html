@@ -68,17 +68,16 @@
     <h3>🌱 Crop: <span style="color: green;">{{ crop_name }}</span></h3>
 </div>
 
-{% if hardiness.hardiness_zone %}
-    <h3>🌍 Hardiness Zone: <span style="color: blue;">{{ hardiness.hardiness_zone }}</span></h3>
-    <p>🌡️ Temperature Range: {{ hardiness.temperature_range }}</p>
-
+{% if hardiness_map %}
+  
     <div class="image-container">
         <h4>📍 Hardiness Map:</h4>
-        <img src="{{ hardiness.map_url }}" alt="Hardiness Map">
+        <a href="{{ hardiness_map }}" target="_blank" class="btn btn-secondary">🔗 View Hardiness Map</a>
+       
     </div>
 {% endif %}
 
-{% else %}
+
 
 {% endif %}
 </div>

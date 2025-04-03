@@ -3,20 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const toggleBtn = document.getElementById("sidebarToggle");
   const mainContent = document.getElementById("main");
 
-  // Toggle sidebar visibility on button click
-  toggleBtn.addEventListener("click", function () {
-    sidebar.classList.toggle("closed");
-
-    if (sidebar.classList.contains("closed")) {
-      // When sidebar is closed, move toggle button and remove left margin from main content
-      toggleBtn.style.left = "20px";
-      mainContent.style.marginLeft = "0";
-    } else {
-      // When sidebar is open, adjust positions accordingly
-      toggleBtn.style.left = "260px";
-      mainContent.style.marginLeft = "250px";
-    }
-  });
 
   // Adjust layout responsively on window resize
   window.addEventListener("resize", () => {

@@ -11,8 +11,16 @@
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     {% block styles %}{% endblock %}
+    
+    <!-- Added CSS for sidebar toggle -->
+
 </head>
 <body>
+    <!-- Sidebar Toggle Button - Only visible on small screens -->
+    <button id="sidebarToggle" class="btn">
+        <i class="fas fa-bars"></i>
+    </button>
+
     <div id="wrapper" class="d-flex">
         <!-- Sidebar -->
         <nav id="sidebar" class="bg-dark text-white">
@@ -81,6 +89,47 @@
     <!-- Scripts -->
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Added JavaScript for sidebar toggle -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sidebar = document.getElementById("sidebar");
+            const toggleBtn = document.getElementById("sidebarToggle");
+            const main = document.getElementById("main");
+            
+            // Toggle sidebar on button click
+            toggleBtn.addEventListener("click", function() {
+                sidebar.classList.toggle("active");
+                
+                // Change toggle button icon based on sidebar state
+                if (sidebar.classList.contains("active")) {
+                    toggleBtn.querySelector("i").classList.remove("fa-bars");
+                    toggleBtn.querySelector("i").classList.add("fa-times");
+                } else {
+                    toggleBtn.querySelector("i").classList.remove("fa-times");
+                    toggleBtn.querySelector("i").classList.add("fa-bars");
+                }
+            });
+            
+            // Function to handle responsive layout
+            function handleResponsiveLayout() {
+                if (window.innerWidth <= 768) {
+                    sidebar.classList.remove("active");
+                    main.classList.add("expanded");
+                    toggleBtn.querySelector("i").classList.remove("fa-times");
+                    toggleBtn.querySelector("i").classList.add("fa-bars");
+                } else {
+                    sidebar.classList.remove("active");
+                    main.classList.remove("expanded");
+                }
+            }
+            
+            // Initial layout and listen for window resize
+            window.addEventListener("resize", handleResponsiveLayout);
+            handleResponsiveLayout();
+        });
+    </script>
+    
     {% block scripts %}{% endblock %}
 </body>
 </html>

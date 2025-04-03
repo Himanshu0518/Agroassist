@@ -4,6 +4,7 @@ import tensorflow as tf
 import numpy as np
 from PIL import Image
 import io
+import os 
 
 # Create a Blueprint for pest detection
 pest_bp = Blueprint(
@@ -13,21 +14,22 @@ pest_bp = Blueprint(
     static_folder='static', 
     url_prefix='/pest_prediction'
 )
-CROP_PEST_API_KEY = 'sk-ZQ0167ed9a9b486c69571'
+CROP_PEST_API_KEY = os.getenv('CROP_PEST_API_KEY')
 
 model = tf.keras.models.load_model('predictive_models/pest_prediction.h5')
 
 # Define the target image size expected by your model (e.g., 224x224)
 IMG_HEIGHT, IMG_WIDTH = 150, 150
 
-def get_hardiness_zone(species_name):
-
-    url = f"https://perenual.com/api/hardiness-map?species_id={species_name}&key={CROP_PEST_API_KEY}"
+def get_hardiness_map(species_id):
     
+    url = f"https://perenual.com/api/hardiness-map?species_id={species_id}&key={CROP_PEST_API_KEY}"
     response = requests.get(url)
+
     if response.status_code == 200:
-        return response.json()
-    return {"error": "Failed to fetch data"}
+        return url  # Return the image URL directly
+    else:
+        return None  # Handle errors
 
 
 @pest_bp.route('/pest_detection')
@@ -70,15 +72,17 @@ def image_classification():
         # Process the prediction result as needed. For example:
         # If using softmax output, get the index of the highest score:
         predicted_class = np.argmax(predictions, axis=1)[0]
-        confidence = np.max(predictions, axis=1)[0]
-
-        # Debug output
-        print("Predicted Class:", predicted_class)
-        print("Confidence:", confidence)
-        hardiness_info = get_hardiness_zone(crop_name)
-        print( hardiness_info)
-        # Pass results to frontend
-        return render_template("pest.html", pest_result=crop_lst[predicted_class-1], crop_name=crop_name, hardiness=hardiness_info)
+       
+        species_url = f"https://perenual.com/api/species-list?key={CROP_PEST_API_KEY}&q={crop_name}"
+        species_response = requests.get(species_url).json()
+        
+        if "data" in species_response and len(species_response["data"]) > 0:
+            species_id = species_response["data"][0]["id"]
+            hardiness_url = get_hardiness_map(species_id)
+            print(species_id)
+            print(hardiness_url)
+    
+        return render_template("pest.html", pest_result=crop_lst[predicted_class-1], crop_name=crop_name, hardiness_map=hardiness_url)
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500 
