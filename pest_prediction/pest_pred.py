@@ -1,4 +1,4 @@
-from flask import Flask, Blueprint, render_template, request, jsonify
+from flask import Blueprint, render_template, request, jsonify
 import requests
 import tensorflow as tf
 import numpy as np

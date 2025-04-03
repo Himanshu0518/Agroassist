@@ -1,7 +1,4 @@
 venv 
-<<<<<<< HEAD
 migrations
-=======
->>>>>>> 12e0273ee9ea65c24aed1a528730595a2eb79c2f
 __pycache__
 .env 
