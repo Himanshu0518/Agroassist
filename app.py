@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request , redirect , url_for , flash , session
 import requests
 import datetime
+from dotenv import load_dotenv
 from collections import defaultdict
 import os
 import json
@@ -14,7 +15,7 @@ from flask_mail import Mail, Message
 
 app = Flask(__name__)
 
-app.register_blueprint(transactions_bp)
+
 from blogs.views import blog_bp
 from crop_recommendation.recommendation import recom_bp
 from pest_prediction.pest_pred import pest_bp
@@ -22,7 +23,9 @@ from pest_prediction.pest_pred import pest_bp
 app.register_blueprint(pest_bp)
 app.register_blueprint(blog_bp)
 app.register_blueprint(recom_bp)
+app.register_blueprint(transactions_bp)
 
+load_dotenv()
 app.secret_key = "your_secret_key_here" 
 # Add max and min functions to Jinja2 globals
 app.jinja_env.globals.update(round=round, max=max, min=min)
@@ -37,7 +40,7 @@ app.config["MAIL_USERNAME"] = os.getenv("MAIL_USERNAME") # Replace with your ema
 app.config["MAIL_PASSWORD"] = os.getenv("MAIL_PASSWORD")  # Use an App Password for security
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"  
 
-import tensorflow as tf
+
 
 mail = Mail(app)
 
