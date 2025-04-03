@@ -16,7 +16,7 @@ pest_bp = Blueprint(
 )
 CROP_PEST_API_KEY = os.getenv('CROP_PEST_API_KEY')
 
-model = tf.keras.models.load_model('predictive_models/pest_prediction.h5')
+model = tf.keras.models.load_model('predictive_models/pest_prediction.tflite')
 
 # Define the target image size expected by your model (e.g., 224x224)
 IMG_HEIGHT, IMG_WIDTH = 150, 150

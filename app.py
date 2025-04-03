@@ -35,6 +35,9 @@ app.config["MAIL_USE_TLS"] = True
 app.config["MAIL_USE_SSL"] = False
 app.config["MAIL_USERNAME"] = os.getenv("MAIL_USERNAME") # Replace with your email
 app.config["MAIL_PASSWORD"] = os.getenv("MAIL_PASSWORD")  # Use an App Password for security
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"  
+
+import tensorflow as tf
 
 mail = Mail(app)
 
