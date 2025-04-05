@@ -1,4 +1,3 @@
-<!-- about-me.html -->
 {% extends "layout.html" %}
 
 {% block styles %}
@@ -6,29 +5,51 @@
 {% endblock %}
 
 {% block content %}
-
-<section class="container mt-5">
-    <div class="row justify-content-center">
-        <!-- Crop Recommendation Feature -->
-        <div class="col-md-5 text-center mb-4">
-            <div class="card shadow p-3">
-                <img src="{{url_for('static',filename='images/crop_recomm_bg.png')}}" class="card-img-top" alt="Crop Recommendation">
-                <div class="card-body">
-                    <h4 class="fw-bold">🌱 Crop Recommendation</h4>
-                    <p class="text-muted">Discover the best crop options tailored to your farm conditions for increased profitability.</p>
-                    <a href="{{ url_for('recommendation.recomm_index') }}" class="btn btn-success">Try Now</a>
-                </div>
+<!-- Feature Cards Section -->
+<section class="features-section py-5">
+    <div class="container">
+        <div class="row justify-content-center mb-4">
+            <div class="col-lg-8 text-center">
+                <h2 class="section-title">Our Key Features</h2>
+                <div class="section-divider mx-auto"></div>
+                <p class="section-subtitle">Smart solutions designed specifically for modern agriculture</p>
             </div>
         </div>
+        
+        <div class="row justify-content-center">
+            <!-- Crop Recommendation Feature -->
+            <div class="col-md-5 feature-card-wrapper">
+                <div class="feature-card shadow-lg">
+                    <div class="feature-card-img">
+                        <img src="{{url_for('static',filename='images/crop_recomm_bg.png')}}" alt="Crop Recommendation">
+                        <div class="feature-overlay"></div>
+                    </div>
+                    <div class="feature-card-body text-center">
+                        <div class="feature-icon crop-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Crop Recommendation</h4>
+                        <p class="text-muted">Discover the best crop options tailored to your farm conditions for increased profitability.</p>
+                        <a href="{{ url_for('recommendation.recomm_index') }}" class="btn btn-primary feature-btn">Try Now</a>
+                    </div>
+                </div>
+            </div>
 
-        <!-- Pest Prediction Feature -->
-        <div class="col-md-5 text-center mb-4">
-            <div class="card shadow p-3">
-                <img src="{{url_for('static',filename='images/pest.png')}}" class="card-img-top" alt="Pest Prediction">
-                <div class="card-body">
-                    <h4 class="fw-bold">🐛 Pest Prediction</h4>
-                    <p class="text-muted">Identify potential pest threats early and protect your crops with our advanced AI analysis.</p>
-                    <a href="{{ url_for('pest_prediction.pest_index') }}" class="btn btn-danger">Try Now</a>
+            <!-- Pest Prediction Feature -->
+            <div class="col-md-5 feature-card-wrapper">
+                <div class="feature-card shadow-lg">
+                    <div class="feature-card-img">
+                        <img src="{{url_for('static',filename='images/pest.png')}}" alt="Pest Prediction">
+                        <div class="feature-overlay"></div>
+                    </div>
+                    <div class="feature-card-body text-center">
+                        <div class="feature-icon pest-icon">
+                            <i class="fas fa-bug"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Pest Prediction</h4>
+                        <p class="text-muted">Identify potential pest threats early and protect your crops with our advanced AI analysis.</p>
+                        <a href="{{ url_for('pest_prediction.pest_index') }}" class="btn btn-danger feature-btn">Try Now</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -40,15 +61,15 @@
     <div class="container">
         <div class="row justify-content-center mb-5">
             <div class="col-lg-8 text-center">
-                <h2 class="section-title">Idea Behind Kisan Bandhu</h2>
-                <div class="section-divider"></div>
+                <h2 class="section-title">Idea Behind AgroAssist</h2>
+                <div class="section-divider mx-auto"></div>
             </div>
         </div>
         
         <div class="row align-items-center">
             <div class="col-lg-5 mb-5 mb-lg-0">
                 <div class="about-image-container">
-                    <img src="{{url_for('static',filename='images/farmer2.jpg')}}" alt="Developer working on Kisan Bandhu" class="about-image">
+                    <img src="{{url_for('static',filename='images/farmer2.jpg')}}" alt="Developer working on AgroAssist" class="about-image img-fluid">
                     <div class="shape-accent shape-accent-1"></div>
                     <div class="shape-accent shape-accent-2"></div>
                 </div>
@@ -56,15 +77,16 @@
             
             <div class="col-lg-7">
                 <div class="about-content">
-                    <h3 class="about-subtitle">Our Journey</h3>
-                    <p class="about-text"> We are a team of passionate innovators driven by the goal of revolutionizing agriculture through technology. Our project, Kisan Bandhu, is designed to empower farmers with AI-driven insights, helping them make informed decisions for better yields and sustainable farming</p>
+                    <h3 class="about-subtitle">My Journey</h3>
+                    <p class="about-text">I am Second-year B.Tech student at IIIT Una, specializing in Electronics and Communication Engineering (ECE), with a strong interest in technology, problem-solving, and hands-on learning.</p>
                     
                     <div class="about-quote">
-                        <p>Kisan Bandhu was developed to bridge the gap between modern technology and traditional farming. By leveraging AI, machine learning, and real-time data, we aim to provide farmers with actionable insights, enabling them to tackle challenges such as unpredictable weather, crop diseases, and market fluctuations.</p>
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p>AgroAssist was developed to bridge the gap between modern technology and traditional farming. By leveraging AI, machine learning, and real-time data, we aim to provide farmers with actionable insights, enabling them to tackle challenges such as unpredictable weather, crop diseases, and market fluctuations.</p>
                     </div>
                     
                     <div class="about-cta">
-                        <a href="#tech-section" class="btn cta-button">Explore My Approach</a>
+                        <a href="#tech-section" class="btn cta-button">Explore Our Approach</a>
                     </div>
                 </div>
             </div>
@@ -77,52 +99,56 @@
     <div class="container">
         <div class="row justify-content-center mb-5">
             <div class="col-lg-8 text-center">
-                <h2 class="section-title">The Logic Behind Kisan Bandhu</h2>
-                <div class="section-divider"></div>
-                <p class="section-subtitle">How I transformed agricultural data into actionable insights</p>
+                <h2 class="section-title">The Logic Behind AgroAssist</h2>
+                <div class="section-divider mx-auto"></div>
+                <p class="section-subtitle">How we transformed agricultural data into actionable insights</p>
             </div>
         </div>
         
         <div class="row g-4">
             <!-- Crop Recommendation Card -->
             <div class="col-md-6">
-                <div class="feature-card">
-                    <div class="feature-icon crop-icon">
-                        <i class="fas fa-seedling"></i>
+                <div class="tech-card">
+                    <div class="tech-card-header">
+                        <div class="tech-icon crop-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h4 class="tech-title">Profitability-Based Crop Recommendation</h4>
                     </div>
-                    <div class="feature-content">
-                        <h4 class="feature-title">Profitability-Based Crop Recommendation</h4>
-                        <div class="feature-formula">
+                    <div class="tech-content">
+                        <div class="tech-formula">
                             <span class="formula-text">Profitability Score = (Yield × Price - Cost) / Cost</span>
                         </div>
-                        <p class="feature-description">I developed an innovative crop recommendation system based on profitability rather than just yield. The algorithm works through:</p>
-                        <ul class="feature-list">
-                            <li>Machine learning models to predict crop yields based on soil and climate data</li>
-                            <li>SARIMA (Seasonal ARIMA) models to forecast future crop prices with seasonal adjustments</li>
-                            <li>Cost of production estimation based on regional input costs</li>
-                            <li>Profitability score calculation to rank crop choices</li>
+                        <p class="tech-description">We developed an innovative crop recommendation system based on profitability rather than just yield. The algorithm works through:</p>
+                        <ul class="tech-list">
+                            <li><i class="fas fa-check-circle"></i> Machine learning models to predict crop yields based on soil and climate data</li>
+                            <li><i class="fas fa-check-circle"></i> SARIMA (Seasonal ARIMA) models to forecast future crop prices with seasonal adjustments</li>
+                            <li><i class="fas fa-check-circle"></i> Cost of production estimation based on regional input costs</li>
+                            <li><i class="fas fa-check-circle"></i> Profitability score calculation to rank crop choices</li>
                         </ul>
-                        <p class="feature-description">This approach ensures farmers not only grow what thrives in their conditions, but what will maximize their return on investment.</p>
+                        <p class="tech-description">This approach ensures farmers not only grow what thrives in their conditions, but what will maximize their return on investment.</p>
                     </div>
                 </div>
             </div>
             
             <!-- Pest Prediction Card -->
             <div class="col-md-6">
-                <div class="feature-card">
-                    <div class="feature-icon pest-icon">
-                        <i class="fas fa-bug"></i>
+                <div class="tech-card">
+                    <div class="tech-card-header">
+                        <div class="tech-icon pest-icon">
+                            <i class="fas fa-bug"></i>
+                        </div>
+                        <h4 class="tech-title">CNN-Based Pest Prediction</h4>
                     </div>
-                    <div class="feature-content">
-                        <h4 class="feature-title">CNN-Based Pest Prediction</h4>
-                        <p class="feature-description">I implemented a sophisticated pest detection system using Convolutional Neural Networks (CNN) that:</p>
-                        <ul class="feature-list">
-                            <li>Analyzes images of plant leaves to identify early signs of pest infestation</li>
-                            <li>Classifies multiple pest species with over 92% accuracy</li>
-                            <li>Provides treatment recommendations specific to the identified pest</li>
-                            <li>Works offline after initial model download for use in remote areas</li>
+                    <div class="tech-content">
+                        <p class="tech-description">We implemented a sophisticated pest detection system using Convolutional Neural Networks (CNN) that:</p>
+                        <ul class="tech-list">
+                            <li><i class="fas fa-check-circle"></i> Analyzes images of plant leaves to identify early signs of pest infestation</li>
+                            <li><i class="fas fa-check-circle"></i> Classifies multiple pest species with over 92% accuracy</li>
+                            <li><i class="fas fa-check-circle"></i> Provides treatment recommendations specific to the identified pest</li>
+                            <li><i class="fas fa-check-circle"></i> Works offline after initial model download for use in remote areas</li>
                         </ul>
-                        <p class="feature-description">The CNN model was trained on a dataset of 70,000+ images covering common agricultural pests in various lighting conditions and growth stages, ensuring robust detection in real-world conditions.</p>
+                        <p class="tech-description">The CNN model was trained on a dataset of 70,000+ images covering common agricultural pests in various lighting conditions and growth stages, ensuring robust detection in real-world conditions.</p>
                     </div>
                 </div>
             </div>
@@ -134,25 +160,28 @@
                 <div class="data-flow-container">
                     <h3 class="text-center mb-4">System Architecture</h3>
                     <div class="data-flow">
-                        <div class="data-step">
+                        <div class="data-step" data-aos="fade-up" data-aos-delay="100">
                             <div class="step-icon"><i class="fas fa-cloud-download-alt"></i></div>
                             <h5>Data Collection</h5>
                             <p>Climate, soil, market data</p>
                         </div>
                         <div class="data-arrow"><i class="fas fa-arrow-right"></i></div>
-                        <div class="data-step">
+                        
+                        <div class="data-step" data-aos="fade-up" data-aos-delay="200">
                             <div class="step-icon"><i class="fas fa-cogs"></i></div>
                             <h5>Processing</h5>
                             <p>SARIMA & ML models</p>
                         </div>
                         <div class="data-arrow"><i class="fas fa-arrow-right"></i></div>
-                        <div class="data-step">
+                        
+                        <div class="data-step" data-aos="fade-up" data-aos-delay="300">
                             <div class="step-icon"><i class="fas fa-calculator"></i></div>
                             <h5>Profitability Analysis</h5>
                             <p>Score calculation</p>
                         </div>
                         <div class="data-arrow"><i class="fas fa-arrow-right"></i></div>
-                        <div class="data-step">
+                        
+                        <div class="data-step" data-aos="fade-up" data-aos-delay="400">
                             <div class="step-icon"><i class="fas fa-chart-line"></i></div>
                             <h5>Recommendation</h5>
                             <p>Actionable insights</p>
@@ -164,42 +193,25 @@
     </div>
 </section>
 
-<!-- Impact Section -->
-<!-- <section class="impact-section py-5">
+<!-- Call to Action Section -->
+<section class="cta-section py-5">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <h2 class="section-title">Real Impact for Farmers</h2>
-                <p class="impact-text">has helped local farmers increase profitability by up to 32% while reducing resource wastage. The combination of profit-focused crop recommendations and early pest detection has transformed agricultural decision-making.</p>
-                <div class="stats-container">
-                    <div class="stat-item">
-                        <span class="stat-number">32%</span>
-                        <span class="stat-label">Increased Profitability</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">92%</span>
-                        <span class="stat-label">Pest Detection Accuracy</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">250+</span>
-                        <span class="stat-label">Farmers Assisted</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="testimonial-container">
-                    <div class="testimonial">
-                        <p>"'s profitability-based recommendations completely changed my approach to crop selection. The price prediction with SARIMA models has been remarkably accurate."</p>
-                        <div class="testimonial-author">
-                            <span class="author-name">- Local Farmer</span>
-                        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="cta-container text-center">
+                    <h2>Ready to Transform Your Farming?</h2>
+                    <p>Start using AgroAssist today and make data-driven decisions for better harvests.</p>
+                    <div class="cta-buttons">
+                        <a href="{{ url_for('recommendation.recomm_index') }}" class="btn btn-light btn-lg me-3">Try Crop Recommendation</a>
+                        <a href="{{ url_for('pest_prediction.pest_index') }}" class="btn btn-outline-light btn-lg">Detect Pests</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section> -->
+</section>
+{% endblock %}
 
-
-
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/about.js') }}"></script>
 {% endblock %}

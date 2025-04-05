@@ -1,4 +1,20 @@
     /* Pest card hover effect */
+    :root {
+        --primary-color: #28a745;
+        --light-green: #81c784;
+        --accent-green: #4caf50;
+        --earth-brown: #8d6e63;
+        --sky-blue: #64b5f6;
+        --secondary-color: #f15a24;
+        --accent-color: #0056b3;
+        --light-color: #f8f9fa;
+        --dark-color: #212529;
+        --section-padding: 5rem 0;
+        --transition-speed: 0.4s;
+        --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        --border-radius: 10px;
+      }
+      
     .pest-card {
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }

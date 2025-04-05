@@ -1,11 +1,19 @@
 
   /* Custom styles to make the page beautiful */
   :root {
-    --primary-green: #2e7d32;
+    --primary-color: #28a745;
     --light-green: #81c784;
     --accent-green: #4caf50;
     --earth-brown: #8d6e63;
     --sky-blue: #64b5f6;
+    --secondary-color: #f15a24;
+    --accent-color: #0056b3;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --section-padding: 5rem 0;
+    --transition-speed: 0.4s;
+    --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --border-radius: 10px;
   }
 
   body {
@@ -14,11 +22,11 @@
   }
 
   .hero-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                url('https://source.unsplash.com/random/1200x400/?farm,agriculture');
+    background-color: var(--dark-color), 
+                ;
     background-size: cover;
     background-position: center;
-    color: white;
+    color: var(--dark-color);
     padding: 4rem 0;
     border-radius: 0.5rem;
     margin-bottom: 2rem;
