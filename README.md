@@ -26,11 +26,13 @@ AgroAssist is a smart agriculture assistant platform aimed at helping farmers ma
 
 ## 🛠️ Tech Stack
 
-| Technology       | Description                                 |
-|------------------|---------------------------------------------|
-| **Python**       | Core backend logic                          |
-| **Flask**        | Web framework for backend and routing       |
-| **TensorFlow/Keras** | Deep learning for plant disease detection |
-| **Pandas/Numpy** | Data preprocessing and numeric computation  |
-| **HTML/CSS/JS**  | Frontend interface (if web dashboard used)  |
+| Technology            | Description                                          |
+|------------------------|------------------------------------------------------|
+| **Python**             | Core backend logic                                   |
+| **Flask**              | Web framework for backend and routing                |
+| **TensorFlow/Keras**   | Deep learning for plant disease detection            |
+| **Scikit-learn**       | Machine learning models for yield prediction         |
+| **statsmodels.tsa**    | Time series forecasting (e.g., price & weather trends) |
+| **Pandas/Numpy**       | Data preprocessing and numeric computation           |
+| **HTML/CSS/JS**        | Frontend interface (if web dashboard used)           |
 
