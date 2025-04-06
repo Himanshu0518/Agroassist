@@ -1,13 +1,23 @@
-# 🌾 AgroAssist (Kisan Bandhu) ![Favicon](static/images/favicon.jpg)
+<p align="center">
+  <img src="static/images/favicon.jpg" alt="AgroAssist Logo" width="120">
+</p>
 
+<h1 align="center">🌾 AgroAssist (Kisan Bandhu)</h1>
+
+<p align="center">
+  Smart Agriculture Assistant Platform to Empower Farmers with AI & ML.
+</p>
+
+---
 
 AgroAssist is a smart agriculture assistant platform aimed at helping farmers make informed decisions using machine learning and AI-powered tools. It simplifies crop selection, detects plant diseases, and offers real-time farming suggestions based on data-driven insights.
+
 ---
 
 ## 🚀 Features
 
-- ✅ **Crop Recommendation System** based on profitability score 
-     Profitability Score = (Yield_Predicted × Price_Predicted - Cost_of_Production) / Cost_of_Production
+- ✅ **Crop Recommendation System** based on profitability score  
+  <br> <span style="font-size:14px">*Profitability Score = (Yield_Predicted × Price_Predicted - Cost_of_Production) / Cost_of_Production*</span>
 - 🦠 **Plant Disease Detection** using image classification (CNN)
 - 🌤️ **Weather-Based Advisory** for timely suggestions
 - 🧠 Powered by Machine Learning models
@@ -16,11 +26,17 @@ AgroAssist is a smart agriculture assistant platform aimed at helping farmers ma
 
 ## 🛠️ Tech Stack
 
-| Technology    | Description                        |
-|---------------|------------------------------------|
-| Python        | Core backend logic                 |
-| Flask         | Web framework                      |
-| TensorFlow/Keras | Deep learning for image classification |
-| Pandas/Numpy  | Data preprocessing and analysis    |
-| HTML/CSS/JS   | Frontend           |
+| Technology       | Description                                 |
+|------------------|---------------------------------------------|
+| **Python**       | Core backend logic                          |
+| **Flask**        | Web framework for backend and routing       |
+| **TensorFlow/Keras** | Deep learning for plant disease detection |
+| **Pandas/Numpy** | Data preprocessing and numeric computation  |
+| **HTML/CSS/JS**  | Frontend interface (if web dashboard used)  |
+
+---
+
+## 📌 Note
+
+Make sure to place the favicon at:
 
