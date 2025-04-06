@@ -34,9 +34,3 @@ AgroAssist is a smart agriculture assistant platform aimed at helping farmers ma
 | **Pandas/Numpy** | Data preprocessing and numeric computation  |
 | **HTML/CSS/JS**  | Frontend interface (if web dashboard used)  |
 
----
-
-## 📌 Note
-
-Make sure to place the favicon at:
-
