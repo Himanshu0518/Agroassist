@@ -21,10 +21,10 @@ AgroAssist is a smart agriculture assistant platform aimed at helping farmers ma
 - 🦠 **Plant Disease Detection** using image classification (CNN)
 - 🌤️ **Weather-Based Advisory** for timely suggestions
 - 🧠 Powered by Machine Learning models
-
+ 
 ---
 
-## 🛠️ Tech Stack
+                       ## 🛠️ Tech Stack
 
 | Technology            | Description                                          |
 |------------------------|------------------------------------------------------|
@@ -37,3 +37,4 @@ AgroAssist is a smart agriculture assistant platform aimed at helping farmers ma
 | **HTML/CSS/JS**        | Frontend interface                                   |
 | **SQLlite**            | To store user blogs,login/signup ,expenses           |
 | **Matplolib/Seaborn**  |  Visualisation                                       |
+
