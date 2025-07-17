@@ -9,12 +9,23 @@ import ee
 import matplotlib
 matplotlib.use('Agg')  # For headless servers (no GUI)
 import matplotlib.pyplot as plt
-import datetime
 import pandas as pd
+import base64
+from io import BytesIO
 
 recom_bp = Blueprint('recommendation', __name__, template_folder='templates', static_folder='static', url_prefix='/recommendation')
 
 AGRO_API_KEY = os.getenv("AGRO_API_KEY", "c2339a94d63f41b15e4b9f88bc4d2ca6")
+
+def fig_to_base64(fig):
+    """Convert matplotlib figure to base64 string"""
+    img = BytesIO()
+    fig.savefig(img, format='png', bbox_inches='tight', dpi=100, facecolor='white')
+    img.seek(0)
+    plot_url = base64.b64encode(img.getvalue()).decode()
+    plt.close(fig)
+    return plot_url
+
 
 # 1) Load Models
 crop_recommendation_model = joblib.load("predictive_models/crop_recommendation.joblib")
@@ -144,30 +155,25 @@ def plot_price_forecast(sarima_model, start_date, forecast_steps,crop):
     forecast_conf.index = forecast_dates
     
     # Plot historical fitted values and forecasts
-    plt.figure(figsize=(10, 6))
-    plt.plot(fitted_series, label="Historical Fitted Values", color="blue")
-    plt.plot(forecast_series, label="Forecast", color="red")
-    plt.fill_between(forecast_dates, 
-                     forecast_conf.iloc[:, 0], 
-                     forecast_conf.iloc[:, 1], color="pink", alpha=0.3, label="Confidence Interval")
-    
-    plt.xlabel("Date")
-    plt.ylabel("Price (₹)")
-    plt.title("Crop Price Forecast and Historical Fitted Values")
-    plt.legend()
-    
-    # Ensure the static/forecast_plots directory exists
-    plot_dir = os.path.join("static", "forecast_plots")
-    os.makedirs(plot_dir, exist_ok=True)
-    
-    # Save plot
-    plot_path = os.path.join(plot_dir, f"{crop}_price_forecast.png")
-    plt.savefig(plot_path, dpi=100, bbox_inches="tight")
-    plt.close()
-    
+    fig, ax = plt.subplots(figsize=(10, 6))
+    ax.plot(fitted_series, label="Historical Fitted Values", color="blue")
+    ax.plot(forecast_series, label="Forecast", color="red")
+    ax.fill_between(forecast_dates, 
+                        forecast_conf.iloc[:, 0], 
+                        forecast_conf.iloc[:, 1], 
+                        color="pink", alpha=0.3, label="Confidence Interval")
+        
+    ax.set_xlabel("Date")
+    ax.set_ylabel("Price (₹)")
+    ax.set_title(f"{crop} Price Forecast and Historical Fitted Values")
+    ax.legend()
+
+        # Convert the figure to base64 string
+    plot_url = fig_to_base64(fig)
+    # Create a plot    
     # Calculate average forecasted price
     avg_price = forecast_series.mean()
-    return avg_price, plot_path
+    return avg_price, plot_url
 
 
 import os

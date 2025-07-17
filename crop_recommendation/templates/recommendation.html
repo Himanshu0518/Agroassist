@@ -140,20 +140,22 @@
     </div>
     
     <!-- Forecast Plot Section -->
-    <div class="forecast-section mt-5">
-      <h3 class="text-center mb-4"><i class="fas fa-chart-line text-primary"></i> Price Forecast</h3>
-      <div class="row">
-        {% for rec in recommendations if rec.forecast_plot %}
-        <div class="col-md-6">
-          <div class="forecast-plot text-center">
-            <h5 class="mb-3">{{ rec.crop }} Price Forecast</h5>
-            <img src="{{ url_for('static', filename='forecast_plots/' + rec.crop + '_price_forecast.png') }}" 
-                 alt="Forecast Plot for {{ rec.crop }}" class="img-fluid rounded">
-          </div>
-        </div>
-        {% endfor %}
+<!-- Forecast Plot Section -->
+<div class="forecast-section mt-5">
+  <h3 class="text-center mb-4"><i class="fas fa-chart-line text-primary"></i> Price Forecast</h3>
+  <div class="row">
+    {% for rec in recommendations if rec.forecast_plot %}
+    <div class="col-md-6 mb-4">
+      <div class="forecast-plot text-center p-3 border rounded shadow-sm bg-light">
+        <h5 class="mb-3 text-success">{{ rec.crop }} Price Forecast</h5>
+        <img src="data:image/png;base64,{{ rec.forecast_plot }}"
+             alt="Forecast Plot for {{ rec.crop }}" class="img-fluid rounded shadow border" style="max-height: 400px;">
       </div>
     </div>
+    {% endfor %}
+  </div>
+</div>
+
     {% endif %}
   </div>
 </div>

@@ -29,7 +29,7 @@ load_dotenv()
 app.secret_key = "your_secret_key_here" 
 # Add max and min functions to Jinja2 globals
 app.jinja_env.globals.update(round=round, max=max, min=min)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("SQLALCHEMY_DATABASE_URI")  # Use SQLite for simplicity
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("SQLALCHEMY_DATABASE_URI")  
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 app.config["MAIL_SERVER"] = os.getenv("MAIL_SERVER") # For Gmail, use smtp.gmail.com
