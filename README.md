@@ -88,7 +88,7 @@ AgroAssist applies a multi-model, AI-powered architecture:
   - Historical yield
   - Market price
   - Cost of production  
-  - first on basis of soil parameters crop is recomended then for each crop profitability score is calculated to maximise net profit     considering less cost of production and high yield.
+   ![flow chart](https://github.com/Himanshu0518/Assets/blob/main/crop_recommendation.png?raw=true) 
 
   **Profitability Score** = `(Yield_Predicted × Price_Predicted - Cost_of_Production) / Cost_of_Production`
 
