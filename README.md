@@ -148,16 +148,15 @@ python app.py
 
 ---
 
-👨‍💻 About the Author
+## 👨‍💻 About the Author
+
 Himanshu Singh
 
 Aspiring Machine Learning Engineer & Data Scientist
 
 Passionate about building real-world, impactful AI solutions
 
-Proficient in MLOps, NLP, Deep Learning, and Data Engineering
-
-GitHub | LinkedIn | Portfolio
+Proficient in MLOps, NLP, Deep Learning
 
 I believe in solving problems that matter. AgroAssist was built to empower farmers, not just for a project, but for impact.
 
