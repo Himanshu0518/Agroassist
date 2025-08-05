@@ -4,6 +4,8 @@ import tensorflow as tf
 import numpy as np
 from PIL import Image
 import io
+from huggingface_hub import hf_hub_download
+import tensorflow as tf
 import os 
 
 # Create a Blueprint for pest detection
@@ -15,14 +17,22 @@ pest_bp = Blueprint(
     url_prefix='/pest_prediction'
 )
 CROP_PEST_API_KEY = os.getenv('CROP_PEST_API_KEY')
-interpreter = tf.lite.Interpreter(model_path="predictive_models/pest_prediction.tflite")
+
+# Step 1: Download model from Hugging Face
+model_path = hf_hub_download(
+    repo_id="himanshu2027iiitu/agroassist-models",
+    filename="pest_prediction.tflite",
+    repo_type="model"
+)
+
+interpreter = tf.lite.Interpreter(model_path=model_path)
 interpreter.allocate_tensors()
 
-# Get input & output details
+# Step 3: Get input/output details
 input_details = interpreter.get_input_details()
 output_details = interpreter.get_output_details()
 
-# Define the target image size expected by your model
+# Step 4: Prepare an input image
 IMG_HEIGHT, IMG_WIDTH = 150, 150
 
 def get_hardiness_map(species_id):

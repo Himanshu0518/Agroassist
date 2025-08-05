@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, jsonify, url_for
 import numpy as np
 import pandas as pd
+from huggingface_hub import hf_hub_download
 import joblib
 import json
 import requests
@@ -26,10 +27,19 @@ def fig_to_base64(fig):
     plt.close(fig)
     return plot_url
 
-
+def load_models(filename):
+    """Load trained models from disk"""
+    model_path = hf_hub_download(
+    repo_id="himanshu2027iiitu/agroassist-models",
+    filename=filename,
+    repo_type="model"
+    )
+    return joblib.load(model_path)
+    
+ 
 # 1) Load Models
-crop_recommendation_model = joblib.load("predictive_models/crop_recommendation.joblib")
-yield_prediction_model = joblib.load("predictive_models/yeild_prediction.joblib")
+crop_recommendation_model = load_models("crop_recommendation.joblib")
+yield_prediction_model = load_models("yeild_prediction.joblib")
 
 # 2) Load Crop Mapping
 with open("crop_mapping.json", "r") as file:
@@ -192,15 +202,11 @@ def forecast_price_sarima(crop_name, start_date_str):
     - plot_path: Path to the saved forecast plot (if successful), else None.
     """
     try:
-        model_path = f"predictive_models/{crop_name}_price_prediction.joblib"
+        model_name = f"{crop_name}_price_prediction.joblib"
         
-        # Check if model file exists
-        if not os.path.exists(model_path):
-            print(f"No price model found for {crop_name}, using default price = ₹50,000")
-            return 50000, None
         
         # Load SARIMA model
-        sarima_model = joblib.load(model_path)
+        sarima_model = load_models(model_name)
         if sarima_model is None:
             raise ValueError("Loaded model is None, possibly corrupted.")
         
