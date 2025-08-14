@@ -10,13 +10,11 @@
 
 <p align="center">
   <a href="#-features">Features</a> • 
-  <a href="#-tech-stack">Tech Stack</a> • 
   <a href="#-methodology">Methodology</a> • 
-  <a href="#-demo--screenshots">Demo</a> • 
-  <a href="#-installation">Installation</a> • 
+  <a href="#-demo">Demo</a> •  
   <a href="#-about-the-author">Author</a> • 
-  <a href="#-license">License</a>
 </p>
+
 
 ---
 
@@ -63,7 +61,7 @@ AgroAssist uses publicly shared datasets that have been curated, cleaned, and up
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer               | Technology                                         |
 |--------------------|-----------------------------------------------------|
@@ -134,7 +132,7 @@ Create a pull request
 
 ---
 
-## ⚙️ Installation
+## Installation
 
 ```bash
 # Clone the repository
@@ -166,7 +164,7 @@ I believe in solving problems that matter. AgroAssist was built to empower farme
 
 ---
 
-📄 License
+## 📄 License
 This project is licensed under the MIT License.
 Feel free to use, modify, and share with attribution.
 
