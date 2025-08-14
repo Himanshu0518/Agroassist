@@ -2,7 +2,7 @@
   <img src="static/images/favicon.jpg" alt="AgroAssist Logo" width="120">
 </p>
 
-<h1 align="center">🌾 AgroAssist (किसान बंधु)</h1>
+<h1 align="center">🌾 AgroAssist </h1>
 
 <p align="center">
   <b>Empowering Farmers with AI & ML for Smarter Agriculture</b>
@@ -112,10 +112,18 @@ AgroAssist applies a multi-model, AI-powered architecture:
 
 ## 📸 Demo 
 
-🎥 **Watch the full walkthrough here**:  
-[![AgroAssist Demo]](https://youtu.be/CQRa5K5qehQ)
+<p align="center">
+  🎥 **Watch the full walkthrough:**  
+  <a href="https://youtu.be/CQRa5K5qehQ" target="_blank">
+    <img src="https://img.youtube.com/vi/CQRa5K5qehQ/0.jpg" alt="AgroAssist Demo" width="600"/>
+  </a>
+</p>
 
----
+<p align="center">
+  <a href="https://youtu.be/CQRa5K5qehQ" target="_blank">
+    <img src="https://img.shields.io/badge/Watch_Demo-YouTube-red?style=for-the-badge&logo=youtube&logoColor=white" alt="Watch Demo"/>
+  </a>
+</p>
 
 🤝 Contributing
 Contributions are welcome! If you have suggestions for improvements or new features:
