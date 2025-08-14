@@ -8,5 +8,5 @@ predictive_models
 migrations/
 *.pyc
 blogs\__pycache__
-.env
 C:\Users\hs787\Desktop\Forum\.env
+.env
