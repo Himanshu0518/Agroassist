@@ -92,6 +92,12 @@ AgroAssist applies a multi-model, AI-powered architecture:
 
   **Profitability Score** = `(Yield_Predicted × Price_Predicted - Cost_of_Production) / Cost_of_Production`
 
+  <p align="center">
+  <a href="https://medium.com/p/4080e0bc141b" target="_blank">
+    <img src="https://img.shields.io/badge/Read_Blog-Medium-1DA1F2?style=for-the-badge&logo=medium&logoColor=white" alt="Read Blog"/>
+  </a>
+</p>
+
 - **Plant Disease Detection**:
   - Deep CNN trained on thousands of labeled plant disease images
   - Achieves high accuracy in real-time image classification

@@ -5,3 +5,7 @@ upload_models.ipynb
 # .gitignore
 predictive_models
 
+migrations/
+*.pyc
+blogs\__pycache__
+
